@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Écrire le canal</title>
+
+  <style>
+    :root {
+      --bleu: #2e466c;
+      --bleu-fonce: #1d304d;
+      --bleu-clair: #e8eef4;
+      --blanc: #ffffff;
+      --fond: #f6f5f1;
+      --texte: #222831;
+      --gris: #68707a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texte);
+      background: var(--blanc);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--blanc);
+      border-bottom: 1px solid #d9dfe5;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1450px;
+      margin: auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--bleu-fonce);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 12px;
+      color: var(--bleu-fonce);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover {
+      background: var(--bleu-clair);
+      border-bottom-color: var(--bleu);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(20, 39, 65, 0.88) 0%,
+          rgba(20, 39, 65, 0.60) 48%,
+          rgba(20, 39, 65, 0.12) 100%
+        ),
+        url("https://drive.google.com/thumbnail?id=1jA4bBQlLOOqQUcxnMCbsYj2mTTj0E5eO&sz=w2000");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1450px;
+      margin: auto;
+      padding: 80px 6vw;
+      color: white;
+    }
+
+    .hero-kicker {
+      margin: 0 0 18px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: .85rem;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 900px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 1;
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      margin-top: 28px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 20px;
+      color: var(--bleu-fonce);
+      background: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 80px 6vw;
+    }
+
+    .container {
+      max-width: 1350px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--bleu);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .8rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin-top: 8px;
+      color: var(--bleu-fonce);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.15;
+    }
+
+    .intro {
+      font-size: 1.2rem;
+      max-width: 900px;
+    }
+
+    /* CARTES */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 45px;
+    }
+
+    .card {
+      min-height: 300px;
+      background: var(--fond);
+      padding: 35px;
+      border-top: 5px solid var(--bleu);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.10);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--bleu-fonce);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: var(--bleu);
+      font-weight: bold;
+    }
+
+    /* SECTION BLEUE */
+
+    .blue-section {
+      background: var(--bleu);
+      color: white;
+    }
+
+    .blue-section h2 {
+      color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--bleu-fonce);
+      color: white;
+      padding: 55px 6vw 30px;
+    }
+
+    .footer-inner {
+      max-width: 1350px;
+      margin: auto;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      padding: 25px 0;
+    }
+
+    .logo-placeholder {
+      min-width: 150px;
+      padding: 18px 22px;
+      background: white;
+      color: var(--bleu-fonce);
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .footer-links {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.25);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .footer-links a {
+      color: white;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      section {
+        padding: 55px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a class="brand" href="#accueil">
+      Écrire le canal
+    </a>
+
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#construire">Construire</a></li>
+        <li><a href="#administrer">Administrer</a></li>
+        <li><a href="#reseaux">Acteurs & réseaux</a></li>
+        <li><a href="#lettres">Explorer les lettres</a></li>
+        <li><a href="#dechiffrer">Déchiffrer</a></li>
+        <li><a href="#apropos">À propos</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero" id="accueil">
+
+    <div class="hero-content">
+
+      <p class="hero-kicker">
+        30 ans de l'inscription du canal du Midi au patrimoine mondial de l'UNESCO
+      </p>
+
+      <h1>Écrire le canal</h1>
+
+      <p class="hero-subtitle">
+        Lettres, acteurs et administration du canal du Midi au XVIIe siècle.
+        Une exposition virtuelle consacrée aux correspondances conservées
+        aux Archives du canal du Midi de Voies navigables de France.
+      </p>
+
+      <a class="hero-button" href="#construire">
+        Découvrir l'exposition
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="container">
+
+      <p class="section-label">L'exposition</p>
+
+      <h2>Le canal du Midi à travers ses correspondances</h2>
+
+      <p class="intro">
+        Cette exposition propose de découvrir la construction et
+        l'administration du canal du Midi à travers les lettres,
+        les acteurs et les réseaux qui ont accompagné son histoire
+        au XVIIe siècle.
+      </p>
+
+      <div class="cards">
+
+        <article class="card" id="construire">
+          <div>
+            <h3>Construire le canal</h3>
+            <p>
+              Explorer les correspondances liées au chantier,
+              aux décisions et aux hommes mobilisés durant
+              la construction du canal.
+            </p>
+          </div>
+
+          <a href="#construire">Découvrir →</a>
+        </article>
+
+
+        <article class="card" id="administrer">
+          <div>
+            <h3>Administrer le canal</h3>
+            <p>
+              Après sa construction, le canal devient un espace
+              à administrer, entre finances, entretien,
+              personnel et circulation de l'information.
+            </p>
+          </div>
+
+          <a href="#administrer">Découvrir →</a>
+        </article>
+
+
+        <article class="card" id="reseaux">
+          <div>
+            <h3>Acteurs & réseaux</h3>
+            <p>
+              Identifier les personnes qui correspondent,
+              leurs fonctions et les relations qui structurent
+              l'administration du canal.
+            </p>
+          </div>
+
+          <a href="#reseaux">Explorer le réseau →</a>
+        </article>
+
+
+        <article class="card" id="lettres">
+          <div>
+            <h3>Explorer les lettres</h3>
+            <p>
+              Consulter une sélection de correspondances,
+              avec dates, auteurs, destinataires,
+              résumés et transcriptions.
+            </p>
+          </div>
+
+          <a href="#lettres">Voir le corpus →</a>
+        </article>
+
+
+        <article class="card" id="dechiffrer">
+          <div>
+            <h3>À vous de déchiffrer !</h3>
+            <p>
+              Observer les écritures du XVIIe siècle
+              et tenter de transcrire quelques passages
+              avant de découvrir leur lecture.
+            </p>
+          </div>
+
+          <a href="#dechiffrer">Essayer →</a>
+        </article>
+
+
+        <article class="card" id="apropos">
+          <div>
+            <h3>À propos</h3>
+            <p>
+              Découvrir le contexte scientifique,
+              archivistique et institutionnel
+              de cette exposition virtuelle.
+            </p>
+          </div>
+
+          <a href="#apropos">En savoir plus →</a>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="blue-section">
+
+    <div class="container">
+
+      <p class="section-label">
+        Archives du canal du Midi
+      </p>
+
+      <h2>
+        Des documents conservés pour écrire une histoire
+        des hommes et de l'administration du canal
+      </h2>
+
+      <p class="intro">
+        Les correspondances permettent d'entrer dans
+        le fonctionnement quotidien du canal et de suivre
+        les échanges entre ses différents acteurs.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <h2>Partenaires et institutions</h2>
+
+    <div class="logos">
+
+      <!-- On remplacera ces blocs par les vrais logos -->
+
+      <div class="logo-placeholder">
+        VNF
+      </div>
+
+      <div class="logo-placeholder">
+        Canal du Midi
+      </div>
+
+      <div class="logo-placeholder">
+        Université Toulouse Jean Jaurès
+      </div>
+
+      <div class="logo-placeholder">
+        DDAME
+      </div>
+
+    </div>
+
+    <div class="footer-links">
+
+      <a href="https://www.vnf.fr/" target="_blank">
+        Voies navigables de France
+      </a>
+
+      <a href="https://www.canal-du-midi.com/" target="_blank">
+        Canal du Midi
+      </a>
+
+      <a href="https://www.univ-tlse2.fr/" target="_blank">
+        Université Toulouse - Jean Jaurès
+      </a>
+
+      <a href="https://ddame.univ-tlse2.fr/" target="_blank">
+        Département Documentation, Archives, Médiathèque et Édition
+      </a>
+
+    </div>
+
+    <p style="margin-top:35px;font-size:.9rem;opacity:.8;">
+      Écrire le canal — Exposition numérique, 2026.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
