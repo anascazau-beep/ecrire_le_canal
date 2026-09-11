@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acteurs du fonds — Écrire le canal</title>
+
+  <style>
+    :root {
+      --bleu: #2b4d73;
+      --bleu-fonce: #18324e;
+      --ecru: #f2ede3;
+      --papier: #f8f4ec;
+      --texte: #17314f;
+      --trait: rgba(23,49,79,.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--ecru);
+      color: var(--texte);
+    }
+
+    header {
+      background: var(--bleu);
+      color: white;
+      text-align: center;
+      padding: 36px 20px 32px;
+    }
+
+    header .anniv {
+      margin: 0 0 10px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(50px, 6vw, 78px);
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    header .subtitle {
+      margin: 14px 0 0;
+      font-size: 18px;
+    }
+
+    nav {
+      background: var(--ecru);
+      border-bottom: 1px solid rgba(23,49,79,.2);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding: 18px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--texte);
+      text-decoration: none;
+    }
+
+    nav a.actif {
+      border-bottom: 2px solid var(--texte);
+      padding-bottom: 4px;
+    }
+
+    .intro {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 56px 34px 42px;
+    }
+
+    .intro .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .intro h2 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(38px, 4.4vw, 58px);
+      font-weight: normal;
+      line-height: 1.08;
+    }
+
+    .intro p {
+      max-width: 850px;
+      font-size: 17px;
+      line-height: 1.65;
+      margin: 20px 0 0;
+    }
+
+    .acteur {
+      width: 100%;
+    }
+
+    .acteur-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 42px 34px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .acteur:nth-of-type(even) {
+      background: var(--bleu);
+      color: white;
+    }
+
+    .acteur:nth-of-type(even) .acteur-inner {
+      grid-template-columns: .75fr 1.25fr;
+    }
+
+    .acteur:nth-of-type(even) .media {
+      order: 1;
+    }
+
+    .acteur:nth-of-type(even) .texte {
+      order: 2;
+    }
+
+    .acteur:nth-of-type(odd) {
+      background: var(--ecru);
+      color: var(--texte);
+    }
+
+    .texte {
+      position: relative;
+      padding-top: 18px;
+    }
+
+    .texte::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 1px;
+      background: currentColor;
+      opacity: .65;
+    }
+
+    .acteur:nth-of-type(even) .texte::before {
+      left: auto;
+      right: 0;
+    }
+
+    .acteur:nth-of-type(even) .texte {
+      text-align: left;
+    }
+
+    .nom-ligne {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .acteur:nth-of-type(even) .nom-ligne {
+      justify-content: flex-start;
+    }
+
+    .nom {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: normal;
+      line-height: 1.08;
+    }
+
+    .dates {
+      font-size: 16px;
+      font-style: italic;
+      opacity: .9;
+      white-space: nowrap;
+    }
+
+    .fonction {
+      margin: 0 0 16px;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
+    .bio {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .media {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .piece {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: .3px;
+    }
+
+    .piece img {
+      display: block;
+      object-fit: contain;
+      margin: 0 auto 8px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .signature img {
+      width: 170px;
+      max-height: 90px;
+    }
+
+    .sceau img {
+      width: 76px;
+      max-height: 76px;
+    }
+
+    .placeholder {
+      border: 1px dashed currentColor;
+      opacity: .55;
+      width: 170px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      padding: 6px;
+    }
+
+    .sceau .placeholder {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+    }
+
+    footer {
+      background: var(--bleu);
+      color: white;
+      text-align: center;
+      padding: 34px 20px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 820px) {
+      .acteur-inner,
+      .acteur:nth-of-type(even) .acteur-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .acteur:nth-of-type(even) .media,
+      .acteur:nth-of-type(even) .texte {
+        order: initial;
+      }
+
+      .media {
+        justify-content: flex-start;
+      }
+
+      .texte::before,
+      .acteur:nth-of-type(even) .texte::before {
+        left: 0;
+        right: auto;
+      }
+
+      nav {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <p class="anniv">
+    30 ans de l'inscription du canal du Midi au patrimoine mondial de l'UNESCO
+  </p>
+  <h1>Écrire le canal</h1>
+  <p class="subtitle">
+    Lettres, acteurs et administration du canal du Midi au XVIIe siècle
+  </p>
+</header>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="index.html#construire">Construire le canal</a>
+  <a href="index.html#administrer">Administrer le canal</a>
+  <a class="actif" href="acteurs.html">Acteurs du fonds</a>
+  <a href="index.html#lettres">Explorer les lettres</a>
+  <a href="index.html#reseaux">Réseaux de correspondance</a>
+  <a href="index.html#apropos">À propos</a>
+</nav>
+
+<main>
+
+  <section class="intro">
+    <div class="eyebrow">Acteurs du fonds</div>
+    <h2>Des hommes derrière les correspondances</h2>
+    <p>
+      Entrepreneurs, héritiers, secrétaires, directeurs de travaux et agents
+      administratifs apparaissent au fil des lettres. Leurs parcours permettent
+      de comprendre comment le canal est construit, administré et entretenu,
+      mais aussi comment l'information circule dans ce réseau.
+    </p>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Pierre-Paul Riquet</h3>
+          <span class="dates">(1609–1680)</span>
+        </div>
+        <p class="fonction">Entrepreneur du canal du Midi</p>
+        <p class="bio">
+          Figure centrale de l’ensemble documentaire, Pierre-Paul Riquet dirige
+          la construction du canal et reste jusqu’à sa mort le principal
+          destinataire des correspondances conservées. Son activité s’appuie
+          sur un vaste réseau d’agents, de financiers, d’ingénieurs et de proches.
+        </p>
+      </div>
+
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Jean-Mathias de Riquet</h3>
+          <span class="dates">(1638–1714)</span>
+        </div>
+        <p class="fonction">Coseigneur du canal</p>
+        <p class="bio">
+          Fils aîné de Pierre-Paul Riquet, Jean-Mathias est progressivement
+          associé aux affaires du canal et sert notamment de relais à Paris.
+          Après la mort de son père en 1680, il prend une place centrale dans
+          l’achèvement puis l’administration de l’ouvrage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Pierre-Paul de Riquet, comte de Caraman</h3>
+          <span class="dates">(1646–1730)</span>
+        </div>
+        <p class="fonction">Militaire et coseigneur du canal</p>
+        <p class="bio">
+          Second fils de Pierre-Paul Riquet, le comte de Caraman poursuit
+          principalement une carrière militaire. Après 1680, il participe avec
+          son frère Jean-Mathias à la gestion du canal et s’appuie fortement
+          sur ses secrétaires.
+        </p>
+      </div>
+
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Dominique Gillade</h3>
+          <span class="dates">(1633–1696)</span>
+        </div>
+        <p class="fonction">Directeur des travaux</p>
+        <p class="bio">
+          Collaborateur ancien de Riquet, Dominique Gillade apparaît sur le
+          chantier dès les premières années des travaux. Ses responsabilités
+          s’accroissent progressivement et il participe à la continuité de
+          l’administration technique du canal après 1680.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Bernard Aliès</h3>
+        </div>
+        <p class="fonction">Homme de confiance de Riquet</p>
+        <p class="bio">
+          Bernard Aliès appartient au cercle de confiance de Pierre-Paul Riquet.
+          Il sert d’intermédiaire dans certaines affaires et apparaît également
+          dans des échanges plus personnels, à la frontière entre affaires
+          administratives et relations familiales.
+        </p>
+      </div>
+
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Pierre Caffarel</h3>
+        </div>
+        <p class="fonction">Secrétaire et avocat au Parlement</p>
+        <p class="bio">
+          Avocat au Parlement, Pierre Caffarel est secrétaire particulier de
+          Pierre-Paul Riquet puis de Jean-Mathias. Très proche de la famille,
+          il intervient dans de nombreuses tâches administratives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Vigne</h3>
+        </div>
+        <p class="fonction">Secrétaire du comte de Caraman</p>
+        <p class="bio">
+          Vigne apparaît fréquemment dans les correspondances postérieures à
+          1680 comme secrétaire du comte de Caraman. Malgré cette forte présence
+          documentaire, les recherches n’ont pas permis de retrouver davantage
+          d’informations biographiques à son sujet.
+        </p>
+      </div>
+
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">André Pouget</h3>
+        </div>
+        <p class="fonction">Administration financière</p>
+        <p class="bio">
+          Greffier en chef de la Cour des comptes, aides et finances de
+          Montpellier, André Pouget travaille avec Riquet dans l’administration
+          des gabelles. Son parcours met en évidence les liens entre finances,
+          crédit, fiscalité et réalisation du chantier.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Nicolas Fouquet &amp; Paul Pellisson-Fontanier</h3>
+        </div>
+        <p class="fonction">Signataire et secrétaire-rédacteur</p>
+        <p class="bio">
+          Une lettre du fonds présente un cas remarquable : elle porte la
+          signature de Nicolas Fouquet, mais l’étude de l’écriture permet
+          d’attribuer sa rédaction à son secrétaire Paul Pellisson-Fontanier.
+        </p>
+      </div>
+
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acteur">
+    <div class="acteur-inner">
+      <div class="media">
+        <div class="piece signature">
+          <div class="placeholder">Signature à intégrer</div>
+          Signature
+        </div>
+        <div class="piece sceau">
+          <div class="placeholder">Sceau</div>
+          Sceau
+        </div>
+      </div>
+
+      <div class="texte">
+        <div class="nom-ligne">
+          <h3 class="nom">Barancy</h3>
+          <span class="dates">(actif entre 1681 et 1685)</span>
+        </div>
+        <p class="fonction">Contrôleur des travaux</p>
+        <p class="bio">
+          Barancy a pu être identifié grâce au croisement des correspondances
+          avec les registres administratifs. Il exerce la fonction de contrôleur
+          des travaux du département de Castelnaudary entre 1681 et 1685.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>Écrire le canal</strong><br>
+  Archives du canal du Midi · Voies navigables de France
+</footer>
+
+</body>
+</html>
