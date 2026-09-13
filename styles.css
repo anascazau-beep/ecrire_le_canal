@@ -247,6 +247,7 @@ h2 {
 .card {
   padding: 38px;
   background: var(--ecru);
+  color: var(--bleu-fonce);
   border: 1px solid var(--bordure);
 }
 
