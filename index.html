@@ -1,670 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Écrire le canal</title>
+  <title>Écrire le canal</title>
 
-<style>
-:root {
-  --bleu: #233f63;
-  --bleu-fonce: #172e49;
-  --ecru: #f2eee4;
-  --papier: #faf8f2;
-  --vert: #6f7d54;
-  --texte: #1f3042;
-  --blanc: #ffffff;
-  --ligne: #d8d1c4;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  color: var(--texte);
-  background: var(--papier);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-}
-
-.top-header {
-  min-height: 185px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 35px 30px;
-  text-align: center;
-  color: white;
-  background: var(--bleu);
-}
-
-.top-header-inner {
-  max-width: 1050px;
-}
-
-.surtitre {
-  margin: 0 0 12px;
-  font-size: .78rem;
-  font-weight: bold;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.top-header h1 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.2rem, 6vw, 5.8rem);
-  font-weight: 500;
-  line-height: 1;
-}
-
-.top-header .subtitle {
-  max-width: 760px;
-  margin: 18px auto 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.25rem;
-}
-
-.archive-banner {
-  width: 100%;
-  height: 330px;
-  overflow: hidden;
-  background: var(--ecru);
-}
-
-.archive-banner img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.navigation-area {
-  background: var(--ecru);
-  border-bottom: 1px solid var(--ligne);
-}
-
-.navigation-inner {
-  max-width: 1420px;
-  margin: auto;
-  padding: 18px 4vw 22px;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav a {
-  display: block;
-  padding: 10px 14px;
-  color: var(--bleu-fonce);
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: bold;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
-}
-
-nav a:hover {
-  color: var(--vert);
-  border-bottom-color: var(--vert);
-}
-
-.search {
-  max-width: 760px;
-  margin: 18px auto 0;
-  display: flex;
-  overflow: hidden;
-  background: white;
-  border: 1px solid #cfc6b7;
-  border-radius: 30px;
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  padding: 13px 19px;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  font-size: .95rem;
-}
-
-.search button {
-  width: 52px;
-  border: 0;
-  color: white;
-  background: var(--bleu);
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.introduction {
-  padding: 85px 6vw 90px;
-}
-
-.introduction-inner {
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
-
-.label {
-  margin: 0;
-  color: var(--vert);
-  font-size: .8rem;
-  font-weight: bold;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-h2 {
-  margin: 12px 0 28px;
-  color: var(--bleu);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.5rem, 5vw, 4.4rem);
-  font-weight: 500;
-  line-height: 1.1;
-}
-
-.introduction .lead {
-  max-width: 820px;
-  margin: auto;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.2rem;
-}
-
-.periods {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--ecru);
-}
-
-.period {
-  min-height: 480px;
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-}
-
-.period:nth-child(2) {
-  border-left: 1px solid var(--ligne);
-}
-
-.period-text {
-  padding: 60px 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.period-image {
-  min-height: 480px;
-  overflow: hidden;
-  background: #ddd5c8;
-}
-
-.period-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.period h3 {
-  margin: 10px 0 20px;
-  color: var(--bleu);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2.6rem;
-  font-weight: 500;
-  line-height: 1.05;
-}
-
-.period a {
-  align-self: flex-start;
-  margin-top: 14px;
-  padding: 11px 17px;
-  color: white;
-  background: var(--bleu);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.explore {
-  background: var(--papier);
-}
-
-.explore-inner {
-  max-width: 1350px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.explore article {
-  min-height: 260px;
-  padding: 48px 42px;
-  border-right: 1px solid var(--ligne);
-}
-
-.explore article:last-child {
-  border-right: 0;
-}
-
-.explore h3 {
-  margin: 0 0 15px;
-  color: var(--bleu);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.7rem;
-  font-weight: 500;
-}
-
-.explore a {
-  color: var(--bleu);
-  font-weight: bold;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.about-strip {
-  padding: 70px 6vw;
-  color: white;
-  background: var(--bleu);
-}
-
-.about-inner {
-  max-width: 1050px;
-  margin: auto;
-}
-
-.about-strip .label {
-  color: #d7d9c4;
-}
-
-.about-strip h2 {
-  color: white;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-}
-
-footer {
-  padding: 45px 6vw 25px;
-  color: var(--bleu-fonce);
-  background: var(--ecru);
-  border-top: 1px solid var(--ligne);
-}
-
-.footer-inner {
-  max-width: 1350px;
-  margin: auto;
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.footer-title {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.6rem;
-}
-
-.footer-text {
-  margin: 8px 0 0;
-  max-width: 350px;
-  font-size: .9rem;
-}
-
-.logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 30px;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 115px;
-  min-height: 60px;
-  padding: 8px;
-  color: var(--bleu);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.logo-link img {
-  max-width: 180px;
-  max-height: 70px;
-  object-fit: contain;
-}
-
-.footer-bottom {
-  margin-top: 35px;
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  border-top: 1px solid #cec5b7;
-  font-size: .82rem;
-}
-
-.footer-bottom a {
-  color: var(--bleu-fonce);
-}
-
-@media (max-width: 1050px) {
-  .periods {
-    grid-template-columns: 1fr;
-  }
-
-  .period:nth-child(2) {
-    border-left: 0;
-    border-top: 1px solid var(--ligne);
-  }
-
-  .explore-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .explore article {
-    border-right: 0;
-    border-bottom: 1px solid var(--ligne);
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
-  }
-
-  .logos {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 720px) {
-  .archive-banner {
-    height: 230px;
-  }
-
-  .period {
-    grid-template-columns: 1fr;
-  }
-
-  .period-image {
-    min-height: 300px;
-  }
-
-  .period-text {
-    padding: 40px 28px;
-  }
-}
-</style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
 </head>
 
 <body>
 
-<header class="top-header" id="accueil">
-  <div class="top-header-inner">
-    <p class="surtitre">
-      30 ans de l'inscription du canal du Midi au patrimoine mondial de l'UNESCO
-    </p>
+  <div id="site-header"></div>
 
-    <h1>Écrire le canal</h1>
+  <main>
 
-    <p class="subtitle">
-      Lettres, acteurs et administration du canal du Midi au XVIIe siècle
-    </p>
-  </div>
-</header>
+    <section class="intro" id="accueil">
+      <p class="kicker">Exposition virtuelle</p>
 
-<div class="archive-banner">
-  <img
-    src="https://drive.google.com/thumbnail?id=1jA4bBQlLOOqQUcxnMCbsYj2mTTj0E5eO&sz=w2000"
-    alt="Salle des Archives du canal du Midi de Voies navigables de France">
-</div>
-
-<div class="navigation-area">
-  <div class="navigation-inner">
-
- <nav aria-label="Navigation principale">
-  <ul>
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="index.html#construire">Construire le canal</a></li>
-    <li><a href="index.html#administrer">Administrer le canal</a></li>
-    <li><a href="acteurs.html">Acteurs du fonds</a></li>
-    <li><a href="index.html#lettres">Explorer les lettres</a></li>
-    <li><a href="index.html#reseaux">Réseaux de correspondance</a></li>
-    <li><a href="index.html#dechiffrer">À vous de déchiffrer !</a></li>
-    <li><a href="index.html#apropos">À propos</a></li>
-  </ul>
-</nav>
-
-    <form class="search">
-      <input
-        type="search"
-        placeholder="Rechercher une lettre, une personne, un lieu…"
-        aria-label="Rechercher dans l'exposition">
-      <button type="submit" aria-label="Rechercher">⌕</button>
-    </form>
-
-  </div>
-</div>
-
-<main>
-
-<section class="introduction">
-  <div class="introduction-inner">
-
-    <p class="label">Une exposition virtuelle des Archives du canal du Midi</p>
-
-    <h2>
-      Correspondre, construire<br>
-      et administrer le canal
-    </h2>
-
-    <p class="lead">
-      À travers un ensemble de correspondances récemment redécouvert
-      et traité, cette exposition invite à découvrir les hommes,
-      les échanges et les réseaux qui ont accompagné la construction
-      puis l'administration du canal du Midi.
-    </p>
-
-  </div>
-</section>
-
-<section class="periods">
-
-  <article class="period" id="construire">
-
-    <div class="period-text">
-      <p class="label">1660–1680</p>
-
-      <h3>
-        Construire le canal<br>
-        par les lettres
-      </h3>
+      <h2>Écrire le canal</h2>
 
       <p>
-        Autour de Pierre-Paul Riquet circulent lettres,
-        informations, décisions et comptes nécessaires
-        à la conduite d'un chantier réparti sur l'ensemble
-        du Languedoc.
+        Derrière la construction du canal du Midi se dessine un monde
+        d’écritures, d’hommes et de réseaux. Les correspondances conservées
+        permettent de suivre aussi bien la naissance de l’ouvrage que son
+        administration quotidienne au XVIIe siècle.
       </p>
+    </section>
 
-      <a href="#">Découvrir cette période →</a>
-    </div>
+    <section class="page-section section-bleue">
+      <div class="page-inner">
 
-    <div class="period-image">
-      <img
-        src="https://drive.google.com/thumbnail?id=1wCCq8ePU6OkZ2oFwvf8UAL59n55djiHh&sz=w1400"
-        alt="Lettre de Pierre-Paul Riquet, 19 avril 1667">
-    </div>
+        <p class="section-subtitle">L’exposition</p>
 
-  </article>
+        <h2 class="section-title">
+          Deux histoires d’un même canal
+        </h2>
 
-  <article class="period" id="administrer">
+        <div class="texte">
 
-    <div class="period-text">
-      <p class="label">1680–1700</p>
+          <p>
+            Le premier volet revient sur la construction du canal autour
+            de Pierre-Paul Riquet. Les lettres éclairent les choix techniques,
+            les difficultés du chantier, les besoins financiers et les hommes
+            mobilisés pour conduire les travaux.
+          </p>
 
-      <h3>
-        Administrer le canal<br>
-        après Riquet
-      </h3>
+          <p>
+            Le second volet s’intéresse à l’administration du canal et aux
+            hommes qui font circuler l’information. Secrétaires, hommes de
+            confiance, directeurs et agents apparaissent au fil des
+            correspondances et assurent la continuité de l’entreprise.
+          </p>
 
-      <p>
-        Après la mort de Pierre-Paul Riquet,
-        ses héritiers et leurs secrétaires prennent le relais.
-        Les correspondances permettent d'observer
-        une administration qui se transforme.
-      </p>
+        </div>
 
-      <a href="#">Découvrir cette période →</a>
-    </div>
-
-    <div class="period-image">
-      <img
-        src="https://drive.google.com/thumbnail?id=1F37L-bJrU21jXlHR9b0yTK37_pO8RyXA&sz=w1400"
-        alt="Correspondance conservée aux Archives du canal du Midi">
-    </div>
-
-  </article>
-
-</section>
-
-<section class="explore">
-  <div class="explore-inner">
-
-    <article id="reseaux">
-      <p class="label">Qui écrit à qui ?</p>
-      <h3>Acteurs et réseaux</h3>
-      <p>
-        Visualiser les correspondants du canal,
-        leurs fonctions et les relations qui les unissent.
-      </p>
-      <a href="#">Explorer le réseau →</a>
-    </article>
-
-    <article id="lettres">
-      <p class="label">Le corpus</p>
-      <h3>Explorer les lettres</h3>
-      <p>
-        Parcourir une sélection de documents
-        par date, auteur, destinataire ou thématique.
-      </p>
-      <a href="#">Consulter les lettres →</a>
-    </article>
-
-    <article id="dechiffrer">
-      <p class="label">Expérimenter</p>
-      <h3>À vous de déchiffrer !</h3>
-      <p>
-        Observer une écriture du XVIIe siècle,
-        proposer une lecture puis révéler la transcription.
-      </p>
-      <a href="#">Tenter l'expérience →</a>
-    </article>
-
-  </div>
-</section>
-
-<section class="about-strip" id="apropos">
-  <div class="about-inner">
-
-    <p class="label">À propos du projet</p>
-
-    <h2>
-      Un fonds nouvellement traité,
-      une nouvelle manière de le parcourir
-    </h2>
-
-    <p>
-      Cette exposition virtuelle s'inscrit dans un travail de classement,
-      de description et de valorisation des correspondances conservées
-      aux Archives du canal du Midi de Voies navigables de France.
-      Elle accompagne également le trentième anniversaire de l'inscription
-      du canal du Midi sur la Liste du patrimoine mondial de l'UNESCO.
-    </p>
-
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-
-    <div class="footer-top">
-
-      <div>
-        <p class="footer-title">Écrire le canal</p>
-
-        <p class="footer-text">
-          Exposition virtuelle consacrée aux correspondances
-          des Archives du canal du Midi.
+        <p>
+          <a
+            href="exposition.html#construction"
+            style="color:inherit;"
+          >
+            Découvrir l’exposition →
+          </a>
         </p>
-      </div>
-
-      <div class="logos">
-
-        <a
-          class="logo-link"
-          href="https://www.vnf.fr/"
-          target="_blank">
-          VNF
-        </a>
-
-        <a
-          class="logo-link"
-          href="https://www.canal-du-midi.com/"
-          target="_blank">
-          Canal du Midi
-        </a>
-
-        <a
-          class="logo-link"
-          href="https://www.univ-tlse2.fr/"
-          target="_blank">
-          UT2J
-        </a>
-
-        <a
-          class="logo-link"
-          href="https://ddame.univ-tlse2.fr/"
-          target="_blank">
-          DDAME
-        </a>
 
       </div>
+    </section>
 
-    </div>
+    <section class="page-section section-ecru">
+      <div class="page-inner">
 
-    <div class="footer-bottom">
-      <a href="#">Mentions légales</a>
-      <a href="#">Crédits</a>
-      <a href="#">Accessibilité</a>
-      <a href="#">Contact</a>
-    </div>
+        <p class="section-subtitle">Les acteurs</p>
 
-  </div>
-</footer>
+        <h2 class="section-title">
+          Des hommes derrière les correspondances
+        </h2>
+
+        <div class="texte">
+
+          <p>
+            Pierre-Paul Riquet, Jean-Mathias de Riquet, le comte de Caraman,
+            Dominique Gillade, Bernard Aliès, Pierre Caffarel, Vigne,
+            Nicolas Fouquet et Paul Pellisson apparaissent directement
+            ou indirectement dans le fonds.
+          </p>
+
+          <p>
+            Leurs biographies permettent de replacer les lettres dans les
+            trajectoires individuelles de ceux qui conçoivent, dirigent,
+            administrent ou écrivent pour le canal.
+          </p>
+
+        </div>
+
+        <p>
+          <a
+            href="acteurs.html"
+            style="color:inherit;"
+          >
+            Voir les biographies →
+          </a>
+        </p>
+
+      </div>
+    </section>
+
+    <section class="page-section section-bleue">
+      <div class="page-inner">
+
+        <p class="section-subtitle">Réseaux de correspondance</p>
+
+        <h2 class="section-title">
+          Voir circuler l’information
+        </h2>
+
+        <div class="texte">
+
+          <p>
+            Les graphiques permettent de représenter les liens entre les
+            principaux acteurs du fonds, la fréquence des échanges et
+            l’évolution des correspondances au fil du temps.
+          </p>
+
+          <p>
+            Ils constituent un élément central de l’exposition en donnant
+            à voir ce que la lecture lettre par lettre ne permet pas toujours
+            de percevoir immédiatement.
+          </p>
+
+        </div>
+
+        <p>
+          <a
+            href="reseaux.html"
+            style="color:inherit;"
+          >
+            Voir les réseaux →
+          </a>
+        </p>
+
+      </div>
+    </section>
+
+    <section class="page-section section-ecru" id="apropos">
+      <div class="page-inner">
+
+        <p class="section-subtitle">À propos</p>
+
+        <h2 class="section-title">
+          Le projet
+        </h2>
+
+        <div class="texte">
+
+          <p>
+            Cette exposition virtuelle est construite à partir d’un travail
+            consacré aux correspondances et aux acteurs liés à la construction
+            et à l’administration du canal du Midi au XVIIe siècle.
+          </p>
+
+          <p>
+            Elle propose une sélection resserrée de documents afin
+            d’accompagner le parcours d’exposition sans transformer le site
+            en base de données exhaustive.
+          </p>
+
+        </div>
+
+        <div class="logos">
+          <img
+            src="images/logos/universite.png"
+            alt="Logo de l’université"
+          >
+
+          <img
+            src="images/logos/vnf.png"
+            alt="Logo de Voies navigables de France"
+          >
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
 
 </body>
 </html>
