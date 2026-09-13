@@ -67,22 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-logos">
 
           <img
-            src="images/logos/vnf.png"
+            src="vnf.png"
             alt="Voies navigables de France"
           >
 
           <img
-            src="images/logos/canal.png"
+            src="canal.png"
             alt="Canal du Midi"
           >
 
           <img
-            src="images/logos/ut2j.png"
+            src="ut2j.png"
             alt="Université Toulouse Jean Jaurès"
           >
 
           <img
-            src="images/logos/ddm.png"
+            src="ddm.png"
             alt="Département Documentation Archives Médiathèque et Édition"
           >
 
