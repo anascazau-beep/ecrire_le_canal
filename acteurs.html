@@ -1,590 +1,158 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Acteurs du fonds — Écrire le canal</title>
 
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+
   <style>
-    :root {
-      --bleu: #29496d;
-      --bleu-fonce: #17324f;
-      --ecru: #f3eee4;
-      --papier: #f8f4eb;
-      --texte: #18334f;
-      --blanc-casse: #f8f4eb;
+    .actor-section .page-inner {
+      padding-top: 78px;
+      padding-bottom: 78px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--ecru);
-      color: var(--texte);
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    /* =====================================================
-       BANDEAU — à garder identique sur toutes les pages
-       ===================================================== */
-
-    .site-header {
-      background: var(--bleu);
-      color: white;
-      text-align: center;
-      padding: 38px 24px 34px;
-    }
-
-    .anniversaire {
-      margin: 0 0 12px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .site-header h1 {
-      margin: 0;
-      font-size: clamp(54px, 6vw, 82px);
-      line-height: .95;
-      font-weight: normal;
-    }
-
-    .site-header .sous-titre {
-      margin: 17px 0 0;
-      font-size: 18px;
-      line-height: 1.4;
-    }
-
-    /* =====================================================
-       MENU
-       ===================================================== */
-
-    nav {
-      background: var(--ecru);
-      border-bottom: 1px solid rgba(24, 51, 79, .18);
-      padding: 19px 25px;
-    }
-
-    nav ul {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0;
-      list-style: none;
-
-      display: flex;
-      justify-content: center;
+    .actor-section .split {
       align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
     }
 
-    nav a {
-      color: var(--texte);
-      text-decoration: none;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      line-height: 1.3;
+    .actor-section .visual {
+      min-height: 140px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-
-    nav a.actif {
-      font-weight: 700;
-      border-bottom: 2px solid var(--texte);
-      padding-bottom: 5px;
-    }
-
-    /* =====================================================
-       INTRODUCTION CENTRÉE
-       ===================================================== */
-
-    .intro {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 72px 30px 68px;
-      text-align: center;
-    }
-
-    .intro .rubrique {
-      margin: 0 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-    }
-
-    .intro h2 {
-      margin: 0 auto;
-      max-width: 900px;
-      font-size: clamp(38px, 4.4vw, 58px);
-      line-height: 1.08;
-      font-weight: normal;
-    }
-
-    .intro p {
-      max-width: 820px;
-      margin: 25px auto 0;
-      font-size: 18px;
-      line-height: 1.75;
-    }
-
-    /* =====================================================
-       ACTEURS
-       ===================================================== */
-
-    .acteur {
-      width: 100%;
-    }
-
-    .acteur.ecru {
-      background: var(--ecru);
-      color: var(--texte);
-    }
-
-    .acteur.bleu {
-      background: var(--bleu);
-      color: var(--blanc-casse);
-    }
-
-    .acteur-contenu {
-      width: min(92%, 1450px);
-      margin: 0 auto;
-      padding: 72px 20px 76px;
-
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(230px, .65fr);
-      gap: 80px;
-      align-items: start;
-    }
-
-    /* alternance texte gauche / texte droite */
-
-    .acteur.droite .acteur-contenu {
-      grid-template-columns: minmax(230px, .65fr) minmax(0, 1.35fr);
-    }
-
-    .acteur.droite .documents {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .acteur.droite .notice {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .notice {
-      max-width: 900px;
-    }
-
-    .notice::before {
-      content: "";
-      display: block;
-      width: min(100%, 620px);
-      height: 1px;
-      background: currentColor;
-      opacity: .65;
-      margin-bottom: 22px;
-    }
-
-    .identite {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 9px;
-    }
-
-    .identite h3 {
-      margin: 0;
-      font-size: clamp(27px, 2.5vw, 35px);
-      line-height: 1.15;
-      font-weight: normal;
-    }
-
-    .dates {
-      font-size: 16px;
-      font-style: italic;
-      opacity: .88;
-    }
-
-    .fonction {
-      margin: 0 0 27px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 17px;
-      line-height: 1.35;
-      font-weight: 700;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-    }
-
-    .bio {
-      font-size: 17px;
-      line-height: 1.78;
-    }
-
-    .bio p {
-      margin: 0 0 19px;
-    }
-
-    .bio p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =====================================================
-       SIGNATURES / SCEAUX
-       Rien ne s'affiche tant qu'on n'a pas de vraie image
-       ===================================================== */
-
-    .documents {
-      min-height: 120px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 28px;
-      padding-top: 48px;
-    }
-
-    .document {
-      margin: 0;
-      text-align: left;
-    }
-
-    .document img {
-      display: block;
+    .actor-section .visual img {
+      width: auto;
+      height: auto;
+      max-width: 220px;
+      max-height: 95px;
       object-fit: contain;
-      max-width: 100%;
     }
 
-    .document.signature img {
-      width: 155px;
-      max-height: 82px;
+    .actor-section .identite {
+      padding-top: 14px;
+      border-top: 1px solid currentColor;
     }
 
-    .document.sceau img {
-      width: 70px;
-      height: 70px;
+    .actor-section .bio {
+      max-width: 820px;
     }
 
-    .document figcaption {
-      margin-top: 7px;
+    .signature-label {
+      margin-top: 12px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-    }
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
-    footer {
-      background: var(--bleu);
-      color: white;
       text-align: center;
-      padding: 38px 20px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      line-height: 1.6;
     }
 
-    footer strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      font-weight: normal;
+    .focus {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: justify;
+      font-size: 17px;
+      line-height: 1.8;
     }
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
 
     @media (max-width: 850px) {
-
-      .acteur-contenu,
-      .acteur.droite .acteur-contenu {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding: 54px 8px 58px;
+      .actor-section .visual {
+        justify-content: flex-start;
       }
 
-      .acteur.droite .notice,
-      .acteur.droite .documents {
-        grid-column: auto;
-        grid-row: auto;
-      }
-
-      .acteur.droite .notice {
-        order: 1;
-      }
-
-      .acteur.droite .documents {
-        order: 2;
-      }
-
-      .documents {
-        padding-top: 0;
-        min-height: 0;
-      }
-
-      nav ul {
-        gap: 15px;
-      }
-
-      .intro {
-        padding-top: 55px;
-        padding-bottom: 50px;
+      .signature-label {
+        text-align: left;
       }
     }
   </style>
 </head>
 
-
 <body>
 
-  <!-- =====================================================
-       EN-TÊTE
-       ===================================================== -->
-
-  <header class="site-header" id="accueil">
-
-    <p class="anniversaire">
-      30 ans de l'inscription du canal du Midi au patrimoine mondial de l'UNESCO
-    </p>
-
-    <h1>Écrire le canal</h1>
-
-    <p class="sous-titre">
-      Lettres, acteurs et administration du canal du Midi au XVIIe siècle
-    </p>
-
-  </header>
-
-
-  <!-- =====================================================
-       MENU IDENTIQUE À CELUI DU SITE
-       ===================================================== -->
-
-  <nav aria-label="Navigation principale">
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="index.html#construire">Construire le canal</a></li>
-      <li><a href="index.html#administrer">Administrer le canal</a></li>
-
-      <li>
-        <a class="actif" href="acteurs.html">
-          Acteurs du fonds
-        </a>
-      </li>
-
-      <li><a href="index.html#lettres">Explorer les lettres</a></li>
-      <li><a href="index.html#reseaux">Réseaux de correspondance</a></li>
-      <li><a href="index.html#dechiffrer">À vous de déchiffrer !</a></li>
-      <li><a href="index.html#apropos">À propos</a></li>
-    </ul>
-  </nav>
-
+  <div id="site-header"></div>
 
   <main>
 
-    <!-- ===================================================
-         INTRODUCTION
-         =================================================== -->
-
     <section class="intro">
+      <p class="kicker">Acteurs du fonds</p>
 
-      <p class="rubrique">
-        Acteurs du fonds
-      </p>
-
-      <h2>
-        Des hommes derrière les correspondances
-      </h2>
+      <h2>Des hommes derrière les correspondances</h2>
 
       <p>
-        Les lettres conservées ne racontent pas seulement la construction
-        du canal. Elles donnent aussi accès aux hommes qui l'ont conçu,
-        financé, administré ou surveillé. Autour de Pierre-Paul Riquet,
-        puis de ses héritiers, se dessine tout un réseau de secrétaires,
-        directeurs de travaux, hommes de confiance et correspondants.
-        Leurs parcours, parfois très bien documentés et parfois presque
-        inconnus, permettent de comprendre comment l'administration
-        quotidienne du canal repose sur la circulation constante de l'écrit.
+        Les lettres conservées dans les archives du canal du Midi font apparaître
+        des hommes aux fonctions très différentes. Entrepreneur, héritiers,
+        directeurs de travaux, hommes de confiance et secrétaires participent tous,
+        à leur échelle, à la construction puis à l’administration du canal.
+        Leurs parcours permettent de replacer les correspondances dans les relations
+        humaines et professionnelles qui leur ont donné naissance.
       </p>
-
     </section>
 
+    <section class="page-section section-bleue actor-section" id="riquet">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         1 — PIERRE-PAUL RIQUET
-         =================================================== -->
+        <div class="split reverse">
 
-    <section class="acteur ecru gauche">
-
-      <div class="acteur-contenu">
-
-        <div class="notice">
-
-          <div class="identite">
-            <h3>Pierre-Paul Riquet</h3>
-            <span class="dates">(1609–1680)</span>
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/riquet.png" alt="Signature de Pierre-Paul Riquet">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
 
-          <p class="fonction">
-            Entrepreneur du canal du Midi
-          </p>
+          <div class="content">
 
-          <div class="bio">
+            <div class="identite">
+              <h3>Pierre-Paul Riquet</h3>
+              <span class="dates">(1609–1680)</span>
+            </div>
 
-            <p>
-              Pierre-Paul Riquet occupe une position singulière dans
-              l'ensemble des correspondances étudiées. Jusqu'à sa mort
-              en 1680, il en constitue le principal destinataire. Les lettres
-              qui lui sont adressées donnent à voir la diversité du réseau
-              sur lequel il s'appuie : agents des différents départements
-              du canal, ingénieurs, financiers, entrepreneurs, représentants
-              du pouvoir royal, mais aussi membres de sa famille et hommes
-              de confiance.
+            <p class="fonction">
+              Entrepreneur et concepteur du canal royal du Languedoc
             </p>
 
-            <p>
-              Avant même la construction du canal, Riquet a développé
-              une importante expérience dans l'administration des gabelles.
-              Les hommes qu'il rencontre dans ce cadre forment en partie
-              le premier noyau de ses collaborateurs. Lorsque les travaux
-              du canal commencent, cette organisation se transforme en
-              un véritable réseau administratif destiné à coordonner un
-              chantier immense, réparti entre plusieurs territoires.
-            </p>
+            <div class="bio">
 
-            <p>
-              Son entreprise repose cependant sur un équilibre financier
-              fragile. Riquet engage une part considérable de sa fortune
-              personnelle et utilise les ressources et les réseaux de crédit
-              dont il dispose pour maintenir les travaux. Au cours des années
-              1670, les difficultés s'accumulent : retards de paiement,
-              dépenses imprévues et désaccords avec Colbert fragilisent
-              progressivement sa position. La réalisation du canal dépend
-              alors autant de sa capacité à trouver des financements que
-              de la conduite technique des ouvrages.
-            </p>
+              <p>
+                Pierre-Paul Riquet construit d’abord sa carrière dans l’administration
+                des gabelles avant de consacrer une part croissante de ses activités
+                au projet de liaison entre l’Atlantique et la Méditerranée. En novembre
+                1662, il expose son projet à Jean-Baptiste Colbert. Après plusieurs
+                expertises, le chantier est autorisé et Riquet devient le principal
+                entrepreneur d’une réalisation qui l’occupera jusqu’à la fin de sa vie.
+              </p>
 
-            <p>
-              Malgré ces difficultés, Riquet poursuit le chantier jusqu'aux
-              dernières semaines de sa vie. En 1679, il fait notamment
-              réaliser le tunnel du Malpas, malgré les réserves exprimées
-              autour de lui. Il meurt à Toulouse le 1er octobre 1680,
-              quelques mois seulement avant la première navigation sur
-              l'ensemble du canal. La continuité de l'entreprise avait
-              cependant été préparée : son fils aîné, Jean-Mathias,
-              était déjà associé à ses affaires et devait prendre la suite.
-            </p>
+              <p>
+                Sa position ne se limite pas à celle d’un concepteur. Il doit réunir
+                autour de lui des hommes capables de diriger les travaux, gérer les
+                approvisionnements, suivre les finances et transmettre les informations
+                entre les différents secteurs du chantier. Les correspondances montrent
+                combien cette organisation repose sur ses relations personnelles et sur
+                un réseau d’agents et de collaborateurs auxquels il accorde sa confiance.
+              </p>
 
-          </div>
-        </div>
+              <p>
+                À partir des années 1670, les difficultés financières deviennent de plus
+                en plus lourdes. Riquet avance des sommes importantes sur sa fortune,
+                multiplie les emprunts et doit répondre aux exigences de Colbert, de plus
+                en plus attentif à ses comptes. En 1678, il emprunte même une somme
+                considérable à son fils Jean-Mathias afin de poursuivre les travaux.
+                Ces tensions n’interrompent pourtant pas le chantier.
+              </p>
 
+              <p>
+                Dans les dernières années de sa vie, il poursuit encore plusieurs
+                opérations majeures, notamment dans le secteur du Malpas. Sa santé
+                décline cependant avant que l’ensemble de l’ouvrage soit achevé.
+                Pierre-Paul Riquet meurt à Toulouse le 1er octobre 1680. Il laisse
+                à ses héritiers la charge de terminer le canal et d’en poursuivre
+                l’administration.
+              </p>
 
-        <div class="documents">
-
-          <!--
-          QUAND NOUS AURONS LES VRAIES IMAGES :
-
-          <figure class="document signature">
-            <img src="images/acteurs/riquet-signature.jpg"
-                 alt="Signature de Pierre-Paul Riquet">
-            <figcaption>Signature</figcaption>
-          </figure>
-
-          <figure class="document sceau">
-            <img src="images/acteurs/riquet-sceau.jpg"
-                 alt="Sceau de Pierre-Paul Riquet">
-            <figcaption>Sceau</figcaption>
-          </figure>
-          -->
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ===================================================
-         2 — JEAN-MATHIAS
-         =================================================== -->
-
-    <section class="acteur bleu droite">
-
-      <div class="acteur-contenu">
-
-        <div class="documents">
-          <!-- vraies images plus tard -->
-        </div>
-
-        <div class="notice">
-
-          <div class="identite">
-            <h3>Jean-Mathias de Riquet</h3>
-            <span class="dates">(1638–1714)</span>
-          </div>
-
-          <p class="fonction">
-            Président à mortier au Parlement de Toulouse · Coseigneur du canal
-          </p>
-
-          <div class="bio">
-
-            <p>
-              Fils aîné de Pierre-Paul Riquet, Jean-Mathias est préparé
-              progressivement à prendre une place dans les affaires familiales.
-              Après des études à Toulouse, il devient avocat puis conseiller
-              au Parlement de Toulouse. Son père l'émancipe en 1667 et
-              commence à l'associer de plus en plus étroitement au projet
-              du canal.
-            </p>
-
-            <p>
-              À partir de 1669, Jean-Mathias effectue notamment plusieurs
-              séjours à Paris. Il y sert de relais entre son père et Colbert,
-              alors que les décisions administratives et financières prises
-              dans la capitale sont essentielles à la poursuite du chantier.
-              En 1673, son association avec les affaires du canal est
-              officiellement renforcée. Cette organisation doit également
-              garantir la continuité de l'entreprise au cas où Pierre-Paul
-              Riquet viendrait à disparaître.
-            </p>
-
-            <p>
-              Sa position dépasse pourtant largement celle d'un simple
-              héritier. Jean-Mathias poursuit parallèlement une carrière
-              dans les institutions royales et parlementaires. Il devient
-              maître des requêtes en 1674 et accède ensuite à d'importantes
-              fonctions au Parlement de Toulouse. Ces responsabilités
-              expliquent en partie que l'administration quotidienne du canal
-              ne puisse reposer uniquement sur lui.
-            </p>
-
-            <p>
-              Lorsque Pierre-Paul Riquet meurt en octobre 1680,
-              Jean-Mathias prend la direction des travaux et participe à
-              leur achèvement. Il dirige ensuite l'exploitation du canal.
-              Les correspondances postérieures à 1680 témoignent ainsi
-              d'une transformation importante : les héritiers demeurent
-              à la tête de l'entreprise, mais ils s'appuient davantage
-              encore sur leurs secrétaires, agents et directeurs pour
-              assurer la continuité quotidienne de l'administration.
-            </p>
+            </div>
 
           </div>
         </div>
@@ -592,144 +160,130 @@
       </div>
     </section>
 
+    <section class="page-section section-ecru actor-section" id="bonrepos">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         3 — COMTE DE CARAMAN
-         =================================================== -->
+        <div class="split">
 
-    <section class="acteur ecru gauche">
+          <div class="content">
 
-      <div class="acteur-contenu">
+            <div class="identite">
+              <h3>Jean-Mathias de Riquet, baron de Bonrepos</h3>
+              <span class="dates">(1638–1714)</span>
+            </div>
 
-        <div class="notice">
+            <p class="fonction">
+              Héritier, directeur des travaux et coseigneur du canal
+            </p>
 
-          <div class="identite">
-            <h3>Pierre-Paul de Riquet, comte de Caraman</h3>
-            <span class="dates">(1646–1730)</span>
+            <div class="bio">
+
+              <p>
+                Né à Mirepoix en 1638, Jean-Mathias est le fils aîné de Pierre-Paul
+                Riquet. Après des études à Toulouse, il devient avocat puis conseiller
+                au Parlement de Toulouse. Son père l’associe progressivement à ses
+                affaires et l’envoie régulièrement à Paris où il sert notamment
+                d’intermédiaire auprès de Colbert.
+              </p>
+
+              <p>
+                En 1673, son association avec les affaires du canal est officiellement
+                renforcée. Cette organisation doit notamment permettre d’assurer
+                la continuité de l’entreprise si Pierre-Paul Riquet venait à disparaître.
+                Jean-Mathias connaît donc déjà les hommes, les dossiers et une partie
+                des difficultés du chantier lorsqu’il doit reprendre la direction des
+                travaux après la mort de son père.
+              </p>
+
+              <p>
+                En octobre 1680, il prend effectivement la tête des travaux et participe
+                à leur achèvement. Les derniers kilomètres restent alors à creuser et
+                plusieurs ouvrages doivent encore être terminés. La première mise en
+                eau intégrale du canal intervient quelques mois après la disparition
+                de Pierre-Paul Riquet.
+              </p>
+
+              <p>
+                Jean-Mathias hérite ensuite du canal à parts égales avec son frère
+                Pierre-Paul de Riquet, comte de Caraman. Tous deux en deviennent
+                les coseigneurs. Cette propriété partagée impose une administration
+                commune et donne une place croissante aux hommes chargés de suivre
+                leurs affaires, notamment Pierre Caffarel auprès de Jean-Mathias.
+              </p>
+
+            </div>
+
           </div>
 
-          <p class="fonction">
-            Militaire · Coseigneur du canal
-          </p>
-
-          <div class="bio">
-
-            <p>
-              Second fils de Pierre-Paul Riquet, Pierre-Paul de Riquet
-              suit un parcours très différent de celui de son frère
-              Jean-Mathias. Il choisit principalement la carrière militaire.
-              Son père contribue néanmoins à renforcer sa position sociale
-              et patrimoniale en faisant notamment l'acquisition, à son
-              bénéfice, du comté de Caraman et de la baronnie de Saint-Félix.
-            </p>
-
-            <p>
-              À la mort de leur père, les deux frères deviennent
-              coseigneurs du canal. Cette gestion partagée constitue
-              l'un des principaux changements observables dans les
-              correspondances après 1680. Jean-Mathias est fortement
-              mobilisé par sa carrière parlementaire tandis que le comte
-              de Caraman poursuit ses fonctions militaires. L'administration
-              de l'ouvrage doit donc reposer sur des intermédiaires capables
-              de transmettre les décisions et de suivre les affaires
-              quotidiennes.
-            </p>
-
-            <p>
-              C'est dans ce contexte que les secrétaires prennent une
-              importance considérable. Les nombreuses copies et lettres
-              liées au comte de Caraman montrent notamment la place de
-              son secrétaire Vigne. L'étude de ces documents permet ainsi
-              de dépasser la seule histoire des propriétaires du canal :
-              derrière eux se trouve tout un personnel de l'écrit sans
-              lequel cette administration à distance aurait difficilement
-              pu fonctionner.
-            </p>
-
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/bonrepos.png" alt="Signature de Jean-Mathias de Riquet, baron de Bonrepos">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
-        </div>
 
-        <div class="documents">
-          <!-- vraies images plus tard -->
         </div>
 
       </div>
     </section>
 
+    <section class="page-section section-bleue actor-section" id="caraman">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         4 — DOMINIQUE GILLADE
-         =================================================== -->
+        <div class="split reverse">
 
-    <section class="acteur bleu droite">
-
-      <div class="acteur-contenu">
-
-        <div class="documents">
-
-          <!--
-          Nous avons déjà la lettre du 3 juin 1684.
-          Quand la signature sera découpée :
-
-          <figure class="document signature">
-            <img src="images/acteurs/gillade-signature.jpg"
-                 alt="Signature de Dominique Gillade">
-            <figcaption>Signature</figcaption>
-          </figure>
-          -->
-
-        </div>
-
-        <div class="notice">
-
-          <div class="identite">
-            <h3>Dominique Gillade</h3>
-            <span class="dates">(1633–1696)</span>
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/caraman.png" alt="Signature de Pierre-Paul de Riquet, comte de Caraman">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
 
-          <p class="fonction">
-            Directeur des travaux du canal
-          </p>
+          <div class="content">
 
-          <div class="bio">
+            <div class="identite">
+              <h3>Pierre-Paul de Riquet, comte de Caraman</h3>
+              <span class="dates">(1646–1730)</span>
+            </div>
 
-            <p>
-              Originaire de Narbonne, Dominique Gillade appartient au
-              groupe des collaborateurs de longue durée de Pierre-Paul
-              Riquet. Leur relation précède la construction du canal :
-              Gillade travaille déjà dans l'environnement des gabelles
-              et des salins du Narbonnais. Cette expérience lui permet
-              d'intégrer progressivement le cercle des hommes sur lesquels
-              Riquet s'appuie pour conduire ses différentes entreprises.
+            <p class="fonction">
+              Militaire, héritier et coseigneur du canal
             </p>
 
-            <p>
-              Gillade apparaît sur le chantier du canal dès 1668.
-              Ses responsabilités augmentent rapidement. En 1671,
-              il partage le contrôle général des travaux avec Contigny.
-              À la fin des années 1670, il intervient notamment dans
-              le Minervois et participe aux discussions techniques
-              concernant plusieurs secteurs difficiles du tracé.
-            </p>
+            <div class="bio">
 
-            <p>
-              Son importance ne s'arrête pas avec la mort de Pierre-Paul
-              Riquet. Jean-Mathias continue à lui accorder sa confiance
-              et Gillade prend une place majeure dans la direction des
-              travaux. À partir du milieu des années 1680, il participe
-              notamment aux ouvrages correctifs réalisés après les
-              observations de Vauban : ponts-aqueducs, modifications
-              hydrauliques et interventions sur le système d'alimentation.
-            </p>
+              <p>
+                Né à Mirepoix en 1646, Pierre-Paul de Riquet mène principalement
+                une carrière militaire. Il est enseigne aux gardes dès 1666 puis
+                lieutenant aux gardes. En 1673, son père achève pour lui l’acquisition
+                du comté de Caraman et de la baronnie de Saint-Félix, qui deviennent
+                durablement associés à son nom.
+              </p>
 
-            <p>
-              Son parcours constitue donc un remarquable exemple de
-              continuité administrative et technique. Présent avant le
-              chantier, acteur de sa construction puis encore responsable
-              après la disparition de Riquet, Gillade relie plusieurs
-              périodes de l'histoire du canal qui sont parfois étudiées
-              séparément.
-            </p>
+              <p>
+                Son parcours le distingue de celui de Jean-Mathias, davantage engagé
+                dans les affaires judiciaires et dans la conduite directe des travaux.
+                Pierre-Paul Riquet demeure néanmoins pleinement concerné par le
+                patrimoine familial et par les affaires liées au canal.
+              </p>
+
+              <p>
+                À la mort de leur père, les deux frères héritent du canal à parts égales
+                et deviennent coseigneurs. L’autorité sur l’ouvrage est désormais
+                partagée entre Bonrepos et Caraman. Cette situation oblige à faire
+                circuler les décisions et les informations des deux côtés de la
+                coseigneurie.
+              </p>
+
+              <p>
+                La carrière militaire du comte de Caraman explique aussi l’importance
+                des collaborateurs capables de suivre ses affaires en son absence.
+                Dans les correspondances conservées, Vigne apparaît précisément
+                comme son secrétaire et l’un des relais de cette administration
+                désormais partagée.
+              </p>
+
+            </div>
 
           </div>
         </div>
@@ -737,138 +291,128 @@
       </div>
     </section>
 
+    <section class="page-section section-ecru actor-section" id="gillade">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         5 — BERNARD ALIÈS
-         =================================================== -->
+        <div class="split">
 
-    <section class="acteur ecru gauche">
+          <div class="content">
 
-      <div class="acteur-contenu">
+            <div class="identite">
+              <h3>Dominique Gillade</h3>
+            </div>
 
-        <div class="notice">
+            <p class="fonction">
+              Collaborateur de Riquet et directeur de travaux
+            </p>
 
-          <div class="identite">
-            <h3>Bernard Aliès</h3>
+            <div class="bio">
+
+              <p>
+                Dominique Gillade appartient aux collaborateurs que Pierre-Paul Riquet
+                connaît bien avant le début du chantier du canal. Riquet travaille
+                d’abord avec Paul Gillade et son fils Dominique dans le cadre des
+                activités liées aux gabelles et aux salins de Narbonne.
+              </p>
+
+              <p>
+                Les qualités de Dominique Gillade lui valent progressivement des
+                responsabilités plus importantes. Lorsque commence la construction
+                du canal, Riquet en fait l’un de ses principaux adjoints. Il intervient
+                dans la conduite des travaux et dans les discussions techniques
+                concernant plusieurs tracés et plusieurs secteurs difficiles du canal.
+              </p>
+
+              <p>
+                Sa présence est particulièrement importante dans le Bas-Languedoc.
+                Lors des travaux du Malpas, Gillade dirige les chantiers du secteur
+                et participe aux discussions autour des solutions à adopter face aux
+                difficultés du terrain. Ces échanges montrent que les décisions
+                techniques ne sont pas uniquement imposées par Riquet mais sont aussi
+                discutées avec ses collaborateurs les plus expérimentés.
+              </p>
+
+              <p>
+                Gillade poursuit son activité après la mort de Pierre-Paul Riquet.
+                En 1683, Jean-Mathias le nomme directeur général des travaux du canal.
+                Il participe alors à plusieurs aménagements destinés à corriger et
+                améliorer l’ouvrage.
+              </p>
+
+            </div>
+
           </div>
 
-          <p class="fonction">
-            Homme de confiance de Pierre-Paul Riquet
-          </p>
-
-          <div class="bio">
-
-            <p>
-              Bernard Aliès appartient au cercle des proches de
-              Pierre-Paul Riquet. Sa fonction ne se réduit pas à un
-              poste administratif précisément défini : il agit surtout
-              comme homme de confiance et comme intermédiaire, notamment
-              lorsque certaines affaires doivent être suivies à Paris.
-              Cette position particulière explique le ton parfois très
-              personnel des échanges qui le concernent.
-            </p>
-
-            <p>
-              Une correspondance conservée aux Archives départementales
-              de la Haute-Garonne, écrite depuis Paris en novembre 1678,
-              montre la variété des informations qu'il transmet à Riquet :
-              avancement des affaires, nouvelles de Jean-Mathias,
-              informations concernant des membres de la famille et
-              événements de la vie privée. Aliès se situe ainsi à la
-              frontière de plusieurs réseaux : famille, administration
-              et affaires.
-            </p>
-
-            <p>
-              Riquet lui confie également des missions suffisamment
-              importantes pour lui donner des consignes précises sur
-              sa correspondance. À l'été 1680, alors que son état de
-              santé se dégrade, Riquet donne procuration à Jean-Mathias
-              afin que celui-ci puisse suivre les affaires traitées à
-              Paris par Aliès.
-            </p>
-
-            <p>
-              Après la mort de Riquet, Aliès conserve encore une place
-              dans l'environnement familial. Son cas rappelle que le
-              fonctionnement du canal ne repose pas uniquement sur une
-              hiérarchie administrative formelle : les liens personnels,
-              la confiance et la fidélité jouent également un rôle
-              déterminant dans la circulation de l'information.
-            </p>
-
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/gillade.png" alt="Signature de Dominique Gillade">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
-        </div>
 
-        <div class="documents">
-          <!-- lettre Aliès du 20 juillet 1689 déjà fournie -->
         </div>
 
       </div>
     </section>
 
+    <section class="page-section section-bleue actor-section" id="alies">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         6 — PIERRE CAFFAREL
-         =================================================== -->
+        <div class="split reverse">
 
-    <section class="acteur bleu droite">
-
-      <div class="acteur-contenu">
-
-        <div class="documents">
-          <!-- vraies images plus tard -->
-        </div>
-
-        <div class="notice">
-
-          <div class="identite">
-            <h3>Pierre Caffarel</h3>
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/alies.png" alt="Signature de Bernard Aliès">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
 
-          <p class="fonction">
-            Avocat au Parlement · Secrétaire de la famille Riquet
-          </p>
+          <div class="content">
 
-          <div class="bio">
+            <div class="identite">
+              <h3>Bernard Aliès</h3>
+            </div>
 
-            <p>
-              Avocat au Parlement, Pierre Caffarel appartient lui aussi
-              au cercle des hommes de confiance de la famille Riquet.
-              Il est d'abord secrétaire particulier de Pierre-Paul Riquet,
-              avant de poursuivre son activité auprès de Jean-Mathias.
-              Sa présence régulière dans les actes et les correspondances
-              témoigne de la diversité des tâches qui peuvent être confiées
-              à un secrétaire au XVIIe siècle.
+            <p class="fonction">
+              Homme de confiance de Pierre-Paul Riquet à Paris
             </p>
 
-            <p>
-              Caffarel apparaît notamment comme témoin dans de nombreux
-              actes notariés. Sa proximité avec Riquet ne relève donc pas
-              uniquement du travail de copie ou de rédaction des lettres :
-              il accompagne également certaines opérations juridiques,
-              administratives et financières. Sa résidence et ses relations
-              facilitent en outre les contacts de Riquet avec les
-              administrations du Bas-Languedoc.
-            </p>
+            <div class="bio">
 
-            <p>
-              Après 1680, son rôle reste important auprès de Jean-Mathias.
-              Cette continuité illustre bien l'évolution du gouvernement
-              du canal : les propriétaires changent, mais une partie des
-              hommes qui maîtrisent les dossiers, les procédures et les
-              habitudes administratives demeure en place.
-            </p>
+              <p>
+                Bernard Aliès appartient au cercle des proches collaborateurs de
+                Pierre-Paul Riquet. Installé à Paris, il devient l’un de ses hommes
+                de confiance et assure le suivi d’affaires qu’il serait difficile
+                pour Riquet de traiter directement depuis le Languedoc.
+              </p>
 
-            <p>
-              Contrairement à Vigne, autre secrétaire très présent dans
-              les correspondances, Caffarel a laissé davantage de traces
-              permettant de reconstituer son parcours. Les recherches
-              apportent notamment des éléments sur sa famille, son origine,
-              sa profession et son environnement confessionnel. Cette
-              différence souligne combien l'identification des acteurs
-              dépend directement des sources qui ont été conservées.
-            </p>
+              <p>
+                Son rôle dépasse la simple transmission administrative. Lorsque
+                Jean-Mathias séjourne à Paris, Aliès sert également de liaison entre
+                le père et le fils. Riquet lui donne des instructions précises et va
+                jusqu’à intervenir sur la manière dont la correspondance doit être
+                présentée, signe de la confiance qu’il lui accorde mais aussi de son
+                attention constante aux détails.
+              </p>
+
+              <p>
+                Les lettres d’Aliès sont particulièrement intéressantes parce qu’elles
+                font apparaître plusieurs facettes de la personnalité de Riquet.
+                À côté des affaires du canal, on trouve des nouvelles de son entourage
+                et de sa famille. Aliès évoque notamment Jean-Mathias, le petit-fils
+                de Lombrail ou encore les difficultés du fils cadet de Riquet liées
+                au jeu.
+              </p>
+
+              <p>
+                Cette correspondance permet ainsi de dépasser l’image du seul
+                entrepreneur. Elle montre un homme préoccupé par le chantier et
+                les finances, mais également par ses proches et par les événements
+                qui touchent sa famille. Après la mort de Riquet, Aliès peut continuer
+                à résider dans l’hôtel utilisé à Paris rue Chapon.
+              </p>
+
+            </div>
 
           </div>
         </div>
@@ -876,144 +420,172 @@
       </div>
     </section>
 
+    <section class="page-section section-ecru actor-section" id="caffarel">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         7 — VIGNE
-         =================================================== -->
+        <div class="split">
 
-    <section class="acteur ecru gauche">
+          <div class="content">
 
-      <div class="acteur-contenu">
+            <div class="identite">
+              <h3>Pierre Caffarel</h3>
+            </div>
 
-        <div class="notice">
+            <p class="fonction">
+              Avocat au Parlement et secrétaire de Jean-Mathias de Riquet
+            </p>
 
-          <div class="identite">
-            <h3>Vigne</h3>
+            <div class="bio">
+
+              <p>
+                Pierre Caffarel est l’un des familiers de Pierre-Paul Riquet avant
+                de devenir un collaborateur essentiel de Jean-Mathias. Avocat au
+                Parlement, il appartient aux hommes de confiance auxquels Riquet
+                confie des missions nombreuses et variées. Sa présence à Montpellier
+                facilite notamment les relations avec les administrations de cette ville.
+              </p>
+
+              <p>
+                Les recherches permettent de mieux documenter son parcours que celui
+                de plusieurs autres secrétaires du canal. Sa famille, son milieu,
+                sa profession et son environnement confessionnel sont mieux connus.
+                Caffarel est issu d’une lignée protestante, dans une période où la
+                situation des réformés devient progressivement plus difficile.
+                Sa place durable auprès des Riquet rappelle néanmoins que les relations
+                professionnelles et personnelles ne se réduisent pas aux seules
+                appartenances confessionnelles.
+              </p>
+
+              <p>
+                Après la mort de Pierre-Paul Riquet, Jean-Mathias conserve sa confiance
+                à Caffarel. Celui-ci intervient dans le suivi des affaires liées au canal
+                et apparaît dans plusieurs actes concernant les sommes dues pour les
+                ouvrages du Languedoc.
+              </p>
+
+              <p>
+                Dans la coseigneurie, sa position prend une importance particulière.
+                Attaché aux affaires de Jean-Mathias, il correspond avec les autres
+                membres du réseau administratif et notamment avec Vigne, secrétaire
+                du comte de Caraman. Leurs échanges donnent à voir concrètement
+                la circulation de l’information entre les deux côtés de la coseigneurie.
+              </p>
+
+            </div>
+
           </div>
 
-          <p class="fonction">
-            Secrétaire de Pierre-Paul de Riquet, comte de Caraman
-          </p>
-
-          <div class="bio">
-
-            <p>
-              Vigne occupe une place paradoxale dans les archives du
-              canal du Midi. Son nom revient dans de nombreuses
-              correspondances postérieures à la mort de Pierre-Paul
-              Riquet, mais sa trajectoire personnelle demeure presque
-              entièrement inconnue. Les recherches consacrées au canal
-              n'ont pour l'instant permis d'établir que peu d'éléments
-              au-delà de son nom et de sa fonction.
-            </p>
-
-            <p>
-              Cette absence d'informations contraste fortement avec son
-              importance documentaire. Vigne est le secrétaire de
-              Pierre-Paul de Riquet, comte de Caraman. Or, après 1680,
-              les secrétaires deviennent des acteurs essentiels de
-              l'administration du canal. Les deux héritiers de Riquet
-              exercent parallèlement d'autres fonctions — parlementaires
-              pour Jean-Mathias, militaires pour son frère — et ne peuvent
-              assurer seuls le suivi quotidien d'une administration
-              répartie sur un vaste territoire.
-            </p>
-
-            <p>
-              Les secrétaires rédigent alors des lettres, produisent des
-              copies, transmettent les instructions et assurent le lien
-              entre les propriétaires, les directeurs de travaux et les
-              agents locaux. À travers les documents qu'il produit ou
-              recopie, Vigne apparaît ainsi comme un véritable relais
-              de l'autorité du comte de Caraman.
-            </p>
-
-            <p>
-              Le cas de Vigne est particulièrement révélateur des limites
-              de la recherche archivistique. Un individu peut être très
-              présent dans un fonds, laisser de nombreuses traces écrites,
-              et pourtant demeurer presque invisible en dehors de ces
-              documents. Plutôt que de masquer ce silence, sa notice
-              permet de montrer ce que les archives rendent possible,
-              mais également ce qu'elles ne permettent pas toujours de
-              restituer.
-            </p>
-
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/caffarel.png" alt="Signature de Pierre Caffarel">
+              <div class="signature-label">Signature</div>
+            </div>
           </div>
-        </div>
 
-        <div class="documents">
-          <!-- signature de Vigne à rechercher -->
         </div>
 
       </div>
     </section>
 
+    <section class="page-section section-bleue actor-section" id="vigne">
+      <div class="page-inner">
 
-    <!-- ===================================================
-         8 — FOUQUET / PELLISSON
-         =================================================== -->
+        <div class="split reverse">
 
-    <section class="acteur bleu droite">
+          <div class="visual">
+            <div>
+              <img src="images/acteurs/vignes.png" alt="Signature de Vigne">
+              <div class="signature-label">Signature</div>
+            </div>
+          </div>
 
-      <div class="acteur-contenu">
+          <div class="content">
 
-        <div class="documents">
-          <!-- signature Fouquet à intégrer plus tard -->
+            <div class="identite">
+              <h3>Vigne</h3>
+            </div>
+
+            <p class="fonction">
+              Secrétaire de Pierre-Paul de Riquet, comte de Caraman
+            </p>
+
+            <div class="bio">
+
+              <p>
+                Vigne occupe une place importante dans les correspondances liées
+                à Pierre-Paul de Riquet, comte de Caraman. Il intervient comme son
+                secrétaire et participe à la rédaction, à la copie et à la transmission
+                des informations nécessaires au suivi des affaires du canal.
+              </p>
+
+              <p>
+                Après la mise en place de la coseigneurie, son activité doit être
+                comprise avec celle de Pierre Caffarel auprès de Jean-Mathias.
+                Les deux secrétaires constituent des relais essentiels entre les deux
+                frères et permettent aux informations de parvenir des deux côtés
+                de la coseigneurie.
+              </p>
+
+              <p>
+                Pourtant, malgré sa présence régulière dans le fonds, les recherches
+                menées jusqu’à présent n’ont pas permis de reconstituer précisément
+                son parcours personnel. Son nom apparaît dans de nombreuses lettres,
+                mais les sources extérieures au fonds restent silencieuses sur sa vie,
+                sa famille ou son origine.
+              </p>
+
+              <p>
+                Ce contraste est particulièrement révélateur. Un homme peut être
+                omniprésent dans une documentation administrative tout en demeurant
+                presque invisible dans les autres sources. Sa signature et les lettres
+                auxquelles il participe deviennent alors les principaux témoignages
+                permettant aujourd’hui de retrouver sa présence.
+              </p>
+
+            </div>
+
+          </div>
         </div>
 
-        <div class="notice">
+      </div>
+    </section>
 
-          <div class="identite">
-            <h3>Nicolas Fouquet &amp; Paul Pellisson-Fontanier</h3>
-          </div>
+    <section class="page-section section-ecru">
+      <div class="page-inner">
 
-          <p class="fonction">
-            Signataire et secrétaire-rédacteur
+        <p class="section-subtitle">Un cas particulier</p>
+
+        <h2 class="section-title">
+          Nicolas Fouquet et Paul Pellisson-Fontanier
+        </h2>
+
+        <div class="focus">
+
+          <p>
+            Nicolas Fouquet, surintendant des finances de Louis XIV avant sa chute
+            en 1661, apparaît lui aussi dans les correspondances adressées à
+            Pierre-Paul Riquet. Une lettre du 15 mai 1660 constitue un cas
+            particulièrement intéressant pour comprendre la fabrication matérielle
+            d’une correspondance au XVIIe siècle.
           </p>
 
-          <div class="bio">
+          <p>
+            Le document porte la signature de Fouquet, mais la comparaison de son
+            écriture avec d’autres lettres conservées dans les archives permet
+            d’attribuer la rédaction du corps du texte à son secrétaire
+            Paul Pellisson-Fontanier. La signature identifie donc celui au nom
+            duquel la lettre est envoyée sans nécessairement désigner celui qui
+            l’a matériellement écrite.
+          </p>
 
-            <p>
-              Une lettre datée du 15 mai 1660 constitue l'un des cas
-              les plus intéressants rencontrés lors de l'identification
-              des producteurs. Le document est associé à Nicolas Fouquet
-              et porte sa signature. Pourtant, l'étude de l'écriture montre
-              que le texte de la lettre n'a probablement pas été rédigé
-              de sa propre main.
-            </p>
+          <p>
+            Ce document rappelle l’importance des secrétaires et des collaborateurs
+            dans la production quotidienne de l’écrit. Il montre aussi pourquoi
+            l’étude des signatures, des écritures et des autres correspondances
+            conservées est indispensable pour identifier précisément les acteurs
+            d’un fonds.
+          </p>
 
-            <p>
-              La comparaison avec d'autres correspondances conservées
-              dans le fonds ancien thématique permet d'attribuer la
-              rédaction à Paul Pellisson-Fontanier, alors secrétaire de
-              Fouquet. Plusieurs lettres adressées à Riquet en 1660
-              présentent en effet les mêmes caractéristiques graphiques.
-              Le croisement des documents permet ainsi de distinguer
-              celui qui signe la lettre de celui qui l'a matériellement
-              rédigée.
-            </p>
-
-            <p>
-              Ce cas rappelle une caractéristique essentielle de la
-              correspondance administrative d'Ancien Régime :
-              l'auteur d'une lettre, son rédacteur et son signataire
-              ne sont pas nécessairement une seule et même personne.
-              Les secrétaires peuvent préparer les textes, recopier
-              les décisions et mettre en forme une correspondance
-              que le supérieur valide ensuite par sa signature.
-            </p>
-
-            <p>
-              La lettre Fouquet-Pellisson permet ainsi de montrer
-              concrètement la méthode utilisée pour travailler sur
-              le fonds. L'identification ne repose pas uniquement
-              sur les noms inscrits dans les documents : elle passe
-              aussi par l'observation des écritures, des signatures,
-              des sceaux et par la comparaison avec d'autres sources.
-            </p>
-
-          </div>
         </div>
 
       </div>
@@ -1021,12 +593,7 @@
 
   </main>
 
-
-  <footer>
-    <strong>Écrire le canal</strong><br>
-    Correspondances et administration du canal du Midi au XVIIe siècle<br>
-    Archives du canal du Midi · Voies navigables de France
-  </footer>
+  <div id="site-footer"></div>
 
 </body>
 </html>
