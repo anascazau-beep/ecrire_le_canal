@@ -39,10 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         </li>
 
         <li>
-          <a href="index.html#lettres">Les lettres</a>
-        </li>
-
-        <li>
           <a href="index.html#apropos">À propos</a>
         </li>
 
@@ -67,22 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-logos">
 
           <img
-            src="vnf.png"
+            src="./vnf.png"
             alt="Voies navigables de France"
           >
 
           <img
-            src="canal.png"
+            src="./canal.png"
             alt="Canal du Midi"
           >
 
           <img
-            src="ut2j.png"
+            src="./ut2j.png"
             alt="Université Toulouse Jean Jaurès"
           >
 
           <img
-            src="ddm.png"
+            src="./ddm.png"
             alt="Département Documentation Archives Médiathèque et Édition"
           >
 
@@ -101,20 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const headerTarget = document.getElementById("site-header");
   const footerTarget = document.getElementById("site-footer");
 
-
   if (headerTarget) {
     headerTarget.innerHTML = header;
   }
-
 
   if (footerTarget) {
     footerTarget.innerHTML = footer;
   }
 
-
   const currentPage =
     window.location.pathname.split("/").pop() || "index.html";
-
 
   document.querySelectorAll(".main-nav a").forEach(function (link) {
 
