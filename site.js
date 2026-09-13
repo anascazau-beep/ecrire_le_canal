@@ -63,23 +63,23 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-logos">
 
           <img
-            src="./vnf.png"
-            alt="Voies navigables de France"
-          >
-
-          <img
-            src="./canal.png"
+            src="canal.png"
             alt="Canal du Midi"
           >
 
           <img
-            src="./ut2j.png"
-            alt="Université Toulouse Jean Jaurès"
+            src="vnf.png"
+            alt="Voies navigables de France"
           >
 
           <img
-            src="./ddm.png"
-            alt="Département Documentation Archives Médiathèque et Édition"
+            src="ut2j.png"
+            alt="Université Toulouse - Jean Jaurès"
+          >
+
+          <img
+            src="ddm.png"
+            alt="Département Documentation, Archives, Médiathèque et Édition"
           >
 
         </div>
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (footerTarget) {
     footerTarget.innerHTML = footer;
   }
+
 
   const currentPage =
     window.location.pathname.split("/").pop() || "index.html";
