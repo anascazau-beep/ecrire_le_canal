@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Construire le canal — Écrire le canal</title>
+  <title>Administrer le canal — Écrire le canal</title>
 
   <link
     rel="stylesheet"
@@ -24,31 +24,31 @@
 
   <style>
 
-    .construction-intro {
+    .administration-intro {
       max-width: 920px;
       margin: 0 auto;
       padding: 75px 30px;
       text-align: center;
     }
 
-    .construction-intro h1 {
+    .administration-intro h1 {
       margin: 0 0 30px;
       font-size: 58px;
       font-weight: normal;
       line-height: 1.05;
     }
 
-    .construction-intro p {
+    .administration-intro p {
       font-size: 18px;
       line-height: 1.85;
     }
 
-    .riquet-network {
-      max-width: 820px;
+    .admin-network {
+      max-width: 780px;
       margin: 45px auto 0;
     }
 
-    .riquet-network img {
+    .admin-network img {
       display: block;
       width: 100%;
       height: auto;
@@ -57,8 +57,8 @@
       background: transparent;
     }
 
-    .riquet-network figcaption {
-      max-width: 760px;
+    .admin-network figcaption {
+      max-width: 730px;
       margin: 18px auto 0;
       text-align: center;
       font-size: 13px;
@@ -66,42 +66,45 @@
       font-style: italic;
     }
 
-    .letter-story {
+    .secretary-story {
       max-width: 1080px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 55px;
       align-items: center;
     }
 
-    .letter-story-text {
+    .secretary-story.reverse {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .secretary-text {
       font-size: 18px;
       line-height: 1.85;
     }
 
-    .letter-story-text h2 {
+    .secretary-text h2 {
       margin-top: 0;
       font-size: 36px;
       line-height: 1.15;
       font-weight: normal;
     }
 
-    .letter-story figure {
+    .secretary-story figure {
       margin: 0;
     }
 
-    .letter-story img {
+    .secretary-story img {
       display: block;
       width: 100%;
-      max-height: 620px;
+      max-height: 650px;
       object-fit: contain;
       border: none;
       background: transparent;
     }
 
-    .letter-story figcaption,
-    .alies-letter figcaption {
+    .secretary-story figcaption {
       margin-top: 13px;
       text-align: center;
       font-size: 13px;
@@ -109,46 +112,28 @@
       font-style: italic;
     }
 
-    .alies-block {
-      max-width: 1000px;
+    .secretary-role {
+      max-width: 880px;
       margin: 0 auto;
-    }
-
-    .alies-text {
-      max-width: 850px;
-      margin: 0 auto 40px;
+      text-align: center;
       font-size: 18px;
       line-height: 1.85;
     }
 
-    .alies-text h2 {
-      text-align: center;
-      font-size: 38px;
-      font-weight: normal;
+    .secretary-role h2 {
+      font-size: 40px;
       line-height: 1.15;
-    }
-
-    .alies-letter {
-      margin: 0 auto;
-      max-width: 950px;
-    }
-
-    .alies-letter img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border: none;
-      background: transparent;
+      font-weight: normal;
     }
 
     @media (max-width: 850px) {
 
-      .letter-story {
+      .secretary-story,
+      .secretary-story.reverse {
         grid-template-columns: 1fr;
       }
 
-      .construction-intro h1 {
+      .administration-intro h1 {
         font-size: 44px;
       }
 
@@ -167,33 +152,29 @@
   <main>
 
 
-    <section class="construction-intro">
+    <section class="administration-intro">
 
       <p class="kicker">
-        Volet I
+        Volet II
       </p>
 
       <h1>
-        Construire le canal
+        Administrer le canal
       </h1>
 
       <p>
-        La construction du canal du Midi ne repose pas sur Pierre-Paul Riquet
-        seul. Autour de lui intervient un ensemble très divers d’agents,
-        d’hommes de confiance, de responsables des travaux, de financiers
-        et d’intermédiaires. Pourtant, les correspondances montrent combien
-        Riquet tient à rester informé et à suivre personnellement les affaires
-        de son entreprise.
+        La mort de Pierre-Paul Riquet, le 1er octobre 1680, marque une rupture
+        dans l’organisation du canal. L’entreprise ne repose désormais plus
+        sur l’autorité d’un seul homme. Ses fils héritent du canal et en
+        assurent ensemble la gestion.
       </p>
 
       <p>
-        Les lettres deviennent ainsi indispensables au fonctionnement du
-        chantier. Elles permettent de faire remonter des informations depuis
-        des territoires éloignés, de rendre compte des travaux et de maintenir
-        le lien entre les nombreux hommes mobilisés. Cette correspondance
-        révèle aussi le caractère très directif de Riquet : son contrôle ne
-        porte pas seulement sur les travaux eux-mêmes, mais également sur la
-        manière dont l’information lui est transmise.
+        Cette nouvelle organisation modifie aussi les pratiques d’écriture.
+        Les correspondances montrent qu’après 1680 les secrétaires occupent
+        une place croissante dans l’administration quotidienne. Ils rédigent,
+        copient et expédient les lettres au nom des coseigneurs et deviennent
+        des intermédiaires essentiels dans la circulation de l’information.
       </p>
 
     </section>
@@ -205,42 +186,40 @@
       <div class="expo-inner">
 
         <h2 class="expo-title">
-          Un réseau organisé autour de Riquet
+          Une administration désormais partagée
         </h2>
 
         <div class="expo-text">
 
           <p>
-            Jusqu’à sa mort en 1680, Pierre-Paul Riquet constitue le principal
-            destinataire des correspondances conservées dans l’ensemble
-            étudié. Cette position centrale apparaît nettement lorsque l’on
-            représente les relations entre les différents producteurs des
-            lettres.
+            Après la disparition de Pierre-Paul Riquet, ses héritiers doivent
+            poursuivre l’exploitation et l’administration du canal.
+            Jean-Mathias de Riquet et son frère Pierre-Paul de Riquet,
+            comte de Caraman, exercent cependant d’autres fonctions qui ne
+            leur permettent pas d’assurer seuls le suivi quotidien de toutes
+            les affaires.
           </p>
 
           <p>
-            Le réseau ne doit cependant pas être lu comme l’œuvre d’un homme
-            isolé. Il révèle au contraire la diversité des personnes
-            nécessaires à la construction du canal et l’importance d’une
-            circulation régulière de l’information entre le chantier,
-            Toulouse et Paris.
+            Ils s’appuient donc sur leurs secrétaires. La correspondance fait
+            apparaître une organisation dans laquelle plusieurs hommes
+            interviennent pour transmettre les informations, préparer les
+            échanges et assurer la continuité des décisions.
           </p>
 
         </div>
 
 
-        <figure class="riquet-network">
+        <figure class="admin-network">
 
           <img
-            src="reseau_correspondance_riquet.png"
-            alt="Réseau de correspondance autour de Pierre-Paul Riquet"
+            src="reseau_correspondance_caffarel-vigne.png"
+            alt="Réseau de correspondance autour de Caffarel et Vigne"
           >
 
           <figcaption>
-            Réseau sélectif des principaux correspondants de Pierre-Paul
-            Riquet. L’épaisseur des liens est proportionnelle au nombre
-            de lettres conservées ; les chiffres indiquent le nombre de
-            lettres recensées pour chaque relation.
+            Réseau sélectif des correspondances liées à Pierre Caffarel
+            et Vigne après la mort de Pierre-Paul Riquet.
           </figcaption>
 
         </figure>
@@ -253,39 +232,70 @@
 
     <section class="expo-section section-ecru">
 
-      <div class="letter-story">
+      <div class="secretary-role">
 
-        <div class="letter-story-text">
+        <p class="kicker">
+          Écrire pour administrer
+        </p>
+
+        <h2>
+          Les secrétaires au cœur des échanges
+        </h2>
+
+        <p>
+          Le secrétaire ne se limite pas à recopier des lettres. Il reçoit
+          des informations, prépare les écrits, transmet les décisions
+          et conserve une partie de la mémoire administrative de son maître.
+          Sa maîtrise de l’écrit lui donne ainsi une place essentielle dans
+          le fonctionnement quotidien du canal.
+        </p>
+
+        <p>
+          Les correspondances conservées permettent de suivre ce rôle
+          à travers deux figures particulièrement importantes : Pierre Caffarel,
+          secrétaire de Jean-Mathias de Riquet, et Vigne, secrétaire de
+          Pierre-Paul de Riquet, comte de Caraman.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="expo-section section-blanche">
+
+      <div class="secretary-story">
+
+        <div class="secretary-text">
 
           <p class="kicker">
-            Une correspondance de chantier
+            Au service de Jean-Mathias
           </p>
 
           <h2>
-            Informer Riquet
+            Pierre Caffarel
           </h2>
 
           <p>
-            La correspondance permet de mesurer l’importance des échanges dans la conduite du chantier. Les hommes chargés du suivi des travaux rendent régulièrement compte à Riquet de leur avancée et des difficultés rencontrées. Les lettres lui permettent ainsi de suivre les différents chantiers et de prendre les décisions nécessaires à leur conduite.
+            Pierre Caffarel est avocat au Parlement de Toulouse et secrétaire
+            de Jean-Mathias de Riquet. Sa présence dans les correspondances
+            montre la place prise par les secrétaires dans la nouvelle
+            organisation du canal après 1680.
           </p>
 
           <p>
-            La lettre de Barancy du 18 juin 1671 offre un exemple concret
-            de ces échanges entretenus autour de Pierre-Paul Riquet pendant
-            la construction du canal. Barancy est directement lié au monde
-            du chantier. En effet, es sources permettent de le retrouver quelques
-            années plus tard comme contrôleur des travaux du département
-            de Castelnaudary, fonction qu’il exerce au moins entre 1681
-            et 1685.
+            La lettre du 1er mars 1688 témoigne de cette activité quotidienne.
+            Elle permet d’observer l’écriture administrative non plus à travers
+            la seule figure du propriétaire du canal, mais à travers celui
+            qui rédige et transmet les informations en son nom.
           </p>
 
           <p>
-            Sa présence dans la correspondance adressée à Riquet témoigne
-            ainsi des relations entretenues avec les hommes chargés du suivi
-            des travaux. Ces échanges permettent à Riquet de recevoir des
-            informations provenant des différents secteurs du chantier et
-            de conserver un regard sur une entreprise répartie entre
-            plusieurs départements.
+            Caffarel apparaît ainsi comme un relais entre Jean-Mathias
+            et les différents acteurs impliqués dans l’administration.
+            Son rôle participe directement à la continuité du fonctionnement
+            du canal.
           </p>
 
         </div>
@@ -294,13 +304,13 @@
         <figure>
 
           <img
-            src="lettre_barancy_1671-06-18.png"
-            alt="Lettre de Barancy à Pierre-Paul Riquet, 18 juin 1671"
+            src="lettre_caffarel_1688-03-01.png"
+            alt="Lettre de Pierre Caffarel, 1er mars 1688"
           >
 
           <figcaption>
-            Lettre de Barancy à Pierre-Paul Riquet,
-            18 juin 1671.
+            Lettre de Pierre Caffarel,
+            1er mars 1688.
           </figcaption>
 
         </figure>
@@ -311,59 +321,61 @@
 
 
 
-    <section class="expo-section section-blanche">
+    <section class="expo-section section-ecru">
 
-      <div class="alies-block">
+      <div class="secretary-story reverse">
 
-        <div class="alies-text">
-
-          <p
-            class="kicker"
-            style="text-align:center;"
-          >
-            Un homme de confiance
-          </p>
-
-          <h2>
-            Bernard Aliès, un relais auprès de Riquet
-          </h2>
-
-          <p>
-            La correspondance de Bernard Aliès permet surtout d’observer le
-            fonctionnement quotidien de l’entreprise de Riquet. Homme de
-            confiance, il constitue un relais auquel peuvent être confiées
-            certaines affaires lorsque Riquet ne peut les suivre directement.
-            Ses lettres témoignent ainsi de la nécessité, pour l’entrepreneur,
-            de s’appuyer sur un entourage capable de transmettre les
-            informations et de suivre ses intérêts à distance.
-          </p>
-
-          <p>
-            La lettre du 20 juillet 1680 prend une résonance particulière
-            puisqu’elle appartient aux derniers mois de la vie de Pierre-Paul
-            Riquet. Elle permet d’observer ce réseau de confiance à un moment
-            où l’organisation de l’entreprise est sur le point de changer.
-            Après la mort de Riquet, le 1er octobre 1680, ses héritiers doivent
-            à leur tour s’appuyer sur des intermédiaires pour assurer la
-            continuité de l’administration du canal.
-          </p>
-
-        </div>
-
-
-        <figure class="alies-letter">
+        <figure>
 
           <img
-            src="lettre_alies_1680-07-20.png"
-            alt="Lettre de Bernard Aliès à Pierre-Paul Riquet, 20 juillet 1680"
+            src="lettre_vigne_1688-02-17.png"
+            alt="Lettre de Vigne, 17 février 1688"
           >
 
           <figcaption>
-            Lettre de Bernard Aliès à Pierre-Paul Riquet,
-            20 juillet 1680.
+            Lettre de Vigne,
+            17 février 1688.
           </figcaption>
 
         </figure>
+
+
+        <div class="secretary-text">
+
+          <p class="kicker">
+            Au service du comte de Caraman
+          </p>
+
+          <h2>
+            Vigne
+          </h2>
+
+          <p>
+            Vigne est le secrétaire de Pierre-Paul de Riquet, comte de
+            Caraman. Pourtant, contrairement à Pierre Caffarel, son parcours
+            demeure très difficile à retracer. Malgré le nombre important
+            de lettres conservées, les recherches menées n’ont permis
+            d’établir que très peu d’éléments sur sa vie.
+          </p>
+
+          <p>
+            Ce contraste est particulièrement révélateur du travail sur les
+            archives. Un acteur peut être très présent dans les correspondances
+            tout en restant presque invisible dans les autres sources.
+            Dans le cas de Vigne, ce sont donc avant tout les lettres qui
+            permettent de retrouver son activité auprès du comte de Caraman.
+          </p>
+
+          <p>
+            La lettre du 17 février 1688 témoigne de cette place dans
+            l’administration du canal. À travers l’écriture et la transmission
+            des correspondances, Vigne participe au suivi des affaires
+            de son maître. Comme Caffarel auprès de Jean-Mathias, il constitue
+            ainsi l’un des relais sur lesquels repose la gestion du canal
+            après la mort de Pierre-Paul Riquet.
+          </p>
+
+        </div>
 
       </div>
 
@@ -376,27 +388,34 @@
       <div class="expo-inner">
 
         <h2 class="expo-title">
-          Après Riquet : une nouvelle organisation
+          De la construction à l’administration
         </h2>
 
         <div class="expo-text">
 
           <p>
-            La disparition de Pierre-Paul Riquet le 1er octobre 1680 entraîne
-            une transformation importante de cette organisation. Ses fils
-            héritent du canal et mettent en place une gestion partagée.
-            L’information ne converge désormais plus vers une seule figure :
-            les secrétaires et les intermédiaires prennent une place
-            croissante dans les échanges.
+            Les correspondances permettent ainsi de suivre une transformation
+            majeure. Du vivant de Pierre-Paul Riquet, les lettres convergent
+            principalement vers lui. Après sa mort, l’administration devient
+            plus collective et repose davantage sur les secrétaires et
+            les intermédiaires.
+          </p>
+
+          <p>
+            Derrière les propriétaires du canal apparaissent donc ceux qui
+            écrivent, copient, transmettent et organisent l’information.
+            L’étude de ces lettres permet de redonner une place à ces acteurs
+            discrets mais indispensables au fonctionnement quotidien
+            de l’entreprise.
           </p>
 
           <p style="text-align:center; margin-top:35px;">
 
             <a
-              href="administrer.html"
+              href="acteurs.html"
               style="color:#f4efe5;"
             >
-              Continuer vers « Administrer le canal » →
+              Découvrir les acteurs du fonds →
             </a>
 
           </p>
