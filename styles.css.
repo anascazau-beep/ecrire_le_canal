@@ -1,0 +1,395 @@
+:root {
+  --bleu: #29496d;
+  --bleu-fonce: #17324f;
+  --ecru: #f3eee4;
+  --texte: #18334f;
+  --blanc: #ffffff;
+  --largeur: 1450px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ecru);
+  color: var(--texte);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+.site-header {
+  background: var(--bleu);
+  color: var(--blanc);
+  text-align: center;
+  padding: 42px 24px 36px;
+}
+
+.site-header-inner {
+  width: min(94%, var(--largeur));
+  margin: 0 auto;
+}
+
+.site-kicker {
+  margin: 0 0 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.site-title {
+  margin: 0;
+  font-size: clamp(48px, 5.5vw, 76px);
+  line-height: 1;
+  font-weight: normal;
+}
+
+.site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-subtitle {
+  max-width: 780px;
+  margin: 17px auto 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.main-nav {
+  background: var(--ecru);
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(24, 51, 79, 0.15);
+}
+
+.main-nav ul {
+  width: min(96%, var(--largeur));
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: var(--texte);
+  text-decoration: none;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  border-bottom: 1px solid currentColor;
+}
+
+.intro {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 72px 30px 68px;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0 0 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.intro h1,
+.intro h2 {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 1.08;
+  font-weight: normal;
+}
+
+.intro p {
+  max-width: 850px;
+  margin: 24px auto 0;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.page-section {
+  width: 100%;
+}
+
+.page-inner {
+  width: min(90%, 1350px);
+  margin: 0 auto;
+  padding: 75px 0;
+}
+
+.section-ecru {
+  background: var(--ecru);
+  color: var(--texte);
+}
+
+.section-bleue {
+  background: var(--bleu);
+  color: var(--blanc);
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: clamp(34px, 3.5vw, 50px);
+  line-height: 1.1;
+  font-weight: normal;
+}
+
+.section-subtitle {
+  margin: 0 0 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.texte,
+.bio {
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.texte {
+  max-width: 950px;
+}
+
+.texte p,
+.bio p {
+  margin: 0 0 19px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(200px, 0.6fr);
+  gap: 70px;
+  align-items: center;
+}
+
+.split.reverse {
+  grid-template-columns: minmax(200px, 0.6fr) minmax(0, 1.4fr);
+}
+
+.split.reverse .visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.split.reverse .content {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.content,
+.visual {
+  min-width: 0;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 390px;
+  object-fit: contain;
+}
+
+.identite {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 9px;
+}
+
+.identite h3 {
+  margin: 0;
+  font-size: clamp(26px, 2.3vw, 34px);
+  line-height: 1.15;
+  font-weight: normal;
+}
+
+.dates {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.fonction {
+  margin: 0 0 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.documents {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.document {
+  margin: 0;
+  padding: 0;
+}
+
+.document img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.document.signature img {
+  max-width: 170px;
+  max-height: 75px;
+}
+
+.document.sceau img {
+  max-width: 85px;
+  max-height: 85px;
+}
+
+.document figcaption {
+  margin-top: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lettres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 42px;
+  margin-top: 45px;
+}
+
+.lettre-card {
+  padding-top: 18px;
+  border-top: 1px solid currentColor;
+}
+
+.lettre-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.lettre-meta {
+  margin: 0 0 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lettre-card p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.logos {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 190px;
+  max-height: 65px;
+  object-fit: contain;
+}
+
+.site-footer {
+  background: var(--bleu);
+  color: var(--blanc);
+  padding: 38px 20px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 5px 0;
+}
+
+.footer-title {
+  font-size: 19px;
+}
+
+.footer-small {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+@media (max-width: 850px) {
+  .split,
+  .split.reverse {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .split.reverse .visual,
+  .split.reverse .content {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .main-nav ul {
+    gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .page-inner {
+    width: 88%;
+    padding: 55px 0;
+  }
+
+  .intro {
+    padding: 55px 24px;
+  }
+
+  .visual img {
+    max-height: 330px;
+  }
+}
