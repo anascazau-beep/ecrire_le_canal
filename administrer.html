@@ -2,396 +2,223 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Administrer le canal - Écrire le canal</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="styles.css">
-  <script src="site.js" defer></script>
+  <title>Administrer le canal — Écrire le canal</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+  <script
+    src="site.js?v=4"
+    defer
+  ></script>
 
   <style>
 
-    .expo-intro {
+    .administration-intro {
       max-width: 920px;
       margin: 0 auto;
-      padding: 80px 25px 75px;
+      padding: 75px 30px;
       text-align: center;
     }
 
-    .expo-intro .kicker {
-      font-family: Arial, Helvetica, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      margin-bottom: 20px;
-    }
-
-    .expo-intro h1 {
-      font-size: 44px;
+    .administration-intro h1 {
+      margin: 0 0 30px;
+      font-size: 58px;
       font-weight: normal;
-      margin: 0 0 28px;
+      line-height: 1.05;
     }
 
-    .expo-intro p {
+    .administration-intro p {
       font-size: 18px;
-      line-height: 1.8;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .expo-section {
-      padding: 80px 25px;
-    }
-
-    .expo-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .expo-title {
-      font-size: 34px;
-      font-weight: normal;
-      text-align: center;
-      margin: 0 0 40px;
-    }
-
-    .expo-text {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 17px;
       line-height: 1.85;
-      text-align: justify;
     }
 
-    .expo-text p {
-      margin: 0 0 22px;
+    .admin-network {
+      max-width: 780px;
+      margin: 45px auto 0;
     }
 
-    .section-ecru {
-      background: #efe8d9;
-      color: #17324f;
-    }
-
-    .section-bleue {
-      background: #17324f;
-      color: #f4efe5;
-    }
-
-    .documents-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      margin-top: 55px;
-      align-items: start;
-    }
-
-    .document-item {
-      margin: 0;
-      text-align: center;
-    }
-
-    .image-placeholder {
-      min-height: 430px;
-      border: 1px solid rgba(23, 50, 79, 0.35);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .section-bleue .image-placeholder {
-      border-color: rgba(244, 239, 229, 0.35);
-    }
-
-    .image-placeholder span {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .image-placeholder small {
-      font-family: Arial, Helvetica, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 11px;
-      opacity: 0.7;
-    }
-
-    .document-item img {
-      max-width: 100%;
-      max-height: 650px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+    .admin-network img {
       display: block;
+      width: 100%;
+      height: auto;
       margin: 0 auto;
+      border: none;
+      background: transparent;
     }
 
-    .document-caption {
-      margin-top: 15px;
-      font-size: 14px;
+    .admin-network figcaption {
+      max-width: 730px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .secretary-story {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .secretary-story.reverse {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .secretary-text {
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .secretary-text h2 {
+      margin-top: 0;
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: normal;
+    }
+
+    .secretary-story figure {
+      margin: 0;
+    }
+
+    .secretary-story img {
+      display: block;
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      border: none;
+      background: transparent;
+    }
+
+    .secretary-story figcaption {
+      margin-top: 13px;
+      text-align: center;
+      font-size: 13px;
       line-height: 1.55;
       font-style: italic;
     }
 
-    .network-intro {
-      max-width: 900px;
+    .secretary-role {
+      max-width: 880px;
       margin: 0 auto;
-      font-size: 17px;
-      line-height: 1.85;
-      text-align: justify;
-    }
-
-    .network-intro p {
-      margin-bottom: 22px;
-    }
-
-    .network-figure {
-      max-width: 1050px;
-      margin: 50px auto 0;
-    }
-
-    .network-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .network-figure figcaption {
-      max-width: 900px;
-      margin: 22px auto 0;
       text-align: center;
-      font-size: 13px;
-      line-height: 1.65;
-      font-style: italic;
+      font-size: 18px;
+      line-height: 1.85;
     }
 
-    @media (max-width: 800px) {
+    .secretary-role h2 {
+      font-size: 40px;
+      line-height: 1.15;
+      font-weight: normal;
+    }
 
-      .expo-intro h1 {
-        font-size: 34px;
-      }
+    @media (max-width: 850px) {
 
-      .documents-grid {
+      .secretary-story,
+      .secretary-story.reverse {
         grid-template-columns: 1fr;
-        gap: 40px;
       }
 
-      .expo-section {
-        padding: 60px 20px;
+      .administration-intro h1 {
+        font-size: 44px;
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
   <div id="site-header"></div>
 
+
   <main>
 
-    <section class="expo-intro">
 
-      <p class="kicker">Volet II</p>
+    <section class="administration-intro">
 
-      <h1>Administrer le canal</h1>
+      <p class="kicker">
+        Volet II
+      </p>
+
+      <h1>
+        Administrer le canal
+      </h1>
 
       <p>
-        Après la mort de Pierre-Paul Riquet en 1680, ses deux fils héritent
-        du canal à parts égales. Jean-Mathias de Riquet, baron de Bonrepos,
-        et Pierre-Paul de Riquet, comte de Caraman, deviennent ainsi
-        coseigneurs d’un canal dont les travaux ne sont pas encore
-        entièrement achevés. Cette nouvelle organisation implique de faire
-        parvenir l’information des deux côtés de la coseigneurie et contribue
-        à faire évoluer les circuits de correspondance.
+        La mort de Pierre-Paul Riquet, le 1er octobre 1680, marque une rupture
+        dans l’organisation du canal. L’entreprise ne repose désormais plus
+        sur l’autorité d’un seul homme. Ses fils héritent du canal et en
+        assurent ensemble la gestion.
+      </p>
+
+      <p>
+        Cette nouvelle organisation modifie aussi les pratiques d’écriture.
+        Les correspondances montrent qu’après 1680 les secrétaires occupent
+        une place croissante dans l’administration quotidienne. Ils rédigent,
+        copient et expédient les lettres au nom des coseigneurs et deviennent
+        des intermédiaires essentiels dans la circulation de l’information.
       </p>
 
     </section>
 
 
-    <section class="expo-section section-bleue">
-
-      <div class="expo-inner">
-
-        <h2 class="expo-title">
-          Des secrétaires au cœur de l’administration
-        </h2>
-
-        <div class="expo-text">
-
-          <p>
-            Les secrétaires occupent une place essentielle dans les pratiques
-            administratives de cette époque. Pierre Caffarel auprès de
-            Bonrepos et Vigne auprès de Caraman assurent une grande partie
-            de la circulation de l’information. Ils rédigent et transmettent
-            des lettres, correspondent entre eux et servent d’intermédiaires
-            entre les deux côtés de la coseigneurie.
-          </p>
-
-          <p>
-            Autour d’eux interviennent également d’autres hommes, comme
-            Desfour, Geoffroy, Bose ou De Laservière, qui participent à leur
-            tour à ces échanges. Le réseau se complexifie ainsi à mesure que
-            se multiplient les personnes chargées de recevoir, transmettre
-            ou conserver l’information.
-          </p>
-
-        </div>
-
-        <div class="documents-grid">
-
-          <figure class="document-item">
-
-            <div class="image-placeholder">
-              <span>Lettre de Pierre Caffarel</span>
-              <small>Image à venir</small>
-            </div>
-
-            <figcaption class="document-caption">
-              Correspondance de Pierre Caffarel.
-              Date et référence à compléter.
-            </figcaption>
-
-          </figure>
-
-
-          <figure class="document-item">
-
-            <div class="image-placeholder">
-              <span>Lettre de Vigne</span>
-              <small>Image à venir</small>
-            </div>
-
-            <figcaption class="document-caption">
-              Correspondance de Vigne.
-              Date et référence à compléter.
-            </figcaption>
-
-          </figure>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="expo-section section-ecru">
-
-      <div class="expo-inner">
-
-        <h2 class="expo-title">
-          Copier, transmettre et conserver
-        </h2>
-
-        <div class="expo-text">
-
-          <p>
-            Cette évolution se retrouve directement dans les archives.
-            Les lettres s’accompagnent désormais de nombreuses copies,
-            produites pour conserver la trace d’un échange ou faire parvenir
-            une même information à plusieurs destinataires.
-          </p>
-
-          <p>
-            La coseigneurie contribue ainsi à démultiplier les documents.
-            À la correspondance elle-même s’ajoutent les copies et les
-            transmissions successives. Tout un système de conservation et
-            de circulation de l’information se met progressivement en place,
-            dont les traces sont encore visibles dans les documents conservés.
-          </p>
-
-        </div>
-
-        <div class="documents-grid">
-
-          <figure class="document-item">
-
-            <div class="image-placeholder">
-              <span>Copie ou double de lettre</span>
-              <small>Image à venir</small>
-            </div>
-
-            <figcaption class="document-caption">
-              Exemple d’une copie conservée dans les archives.
-              Référence à compléter.
-            </figcaption>
-
-          </figure>
-
-
-          <figure class="document-item">
-
-            <div class="image-placeholder">
-              <span>Document de transmission</span>
-              <small>Image à venir</small>
-            </div>
-
-            <figcaption class="document-caption">
-              Document illustrant la circulation ou la conservation
-              de l’information.
-            </figcaption>
-
-          </figure>
-
-        </div>
-
-      </div>
-
-    </section>
-
 
     <section class="expo-section section-bleue">
 
       <div class="expo-inner">
 
-        <p class="kicker" style="text-align:center;">
-          Visualiser les échanges
-        </p>
-
         <h2 class="expo-title">
-          La correspondance au temps de la coseigneurie
+          Une administration désormais partagée
         </h2>
 
-        <div class="network-intro">
+        <div class="expo-text">
 
           <p>
-            Le réseau ci-dessous permet d’observer une partie de ce
-            fonctionnement. Il fait apparaître les deux coseigneurs, leurs
-            secrétaires et plusieurs autres hommes présents dans les
-            correspondances retenues.
+            Après la disparition de Pierre-Paul Riquet, ses héritiers doivent
+            poursuivre l’exploitation et l’administration du canal. Jean-Mathias
+            de Riquet et son frère Pierre-Paul de Riquet, comte de Caraman,
+            exercent cependant d’autres fonctions qui ne leur permettent pas
+            d’assurer seuls le suivi quotidien de toutes les affaires.
           </p>
 
           <p>
-            La relation particulièrement importante entre Caffarel et Vigne
-            montre combien les échanges entre intermédiaires participent au
-            fonctionnement quotidien de la coseigneurie. Le graphe donne
-            ainsi à voir un réseau qui ne se limite plus aux échanges directs
-            avec les propriétaires du canal, mais repose sur plusieurs niveaux
-            de transmission.
+            Ils s’appuient donc sur leurs secrétaires. La correspondance fait
+            apparaître une organisation dans laquelle plusieurs hommes
+            interviennent pour transmettre les informations, préparer les
+            échanges et assurer la continuité des décisions.
           </p>
 
         </div>
 
-        <figure class="network-figure">
+
+        <figure class="admin-network">
 
           <img
-            src="images/reseau_correspondance_caffarel_vigne.png"
-            alt="Réseau de correspondance autour de Pierre Caffarel et Vigne"
+            src="reseau_correspondance_caffarel-vigne.png"
+            alt="Réseau de correspondance autour de Caffarel et Vigne"
           >
 
           <figcaption>
-            Réseau sélectif établi à partir des correspondances recensées dans
-            le corpus. La couleur distingue les coseigneurs, les intermédiaires
-            et les autres correspondants. L’épaisseur des liens est
-            proportionnelle au nombre de lettres conservées. Les chiffres
-            indiquent le nombre de lettres recensées pour chaque relation.
-            Le réseau est volontairement sélectif afin de conserver une
-            visualisation lisible.
+            Réseau sélectif des correspondances liées à Pierre Caffarel
+            et Vigne après la mort de Pierre-Paul Riquet.
           </figcaption>
 
         </figure>
@@ -400,9 +227,206 @@
 
     </section>
 
+
+
+    <section class="expo-section section-ecru">
+
+      <div class="secretary-role">
+
+        <p class="kicker">
+          Écrire pour administrer
+        </p>
+
+        <h2>
+          Les secrétaires au cœur des échanges
+        </h2>
+
+        <p>
+          Le secrétaire ne se limite pas à recopier des lettres. Il reçoit
+          des informations, prépare les écrits, transmet les décisions
+          et conserve une partie de la mémoire administrative de son maître.
+          Sa maîtrise de l’écrit lui donne ainsi une place essentielle dans
+          le fonctionnement quotidien du canal.
+        </p>
+
+        <p>
+          Les correspondances conservées permettent de suivre ce rôle
+          à travers deux figures particulièrement importantes : Pierre Caffarel,
+          secrétaire de Jean-Mathias de Riquet, et Vigne, secrétaire de
+          Pierre-Paul de Riquet, comte de Caraman.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="expo-section section-blanche">
+
+      <div class="secretary-story">
+
+        <div class="secretary-text">
+
+          <p class="kicker">
+            Au service de Jean-Mathias
+          </p>
+
+          <h2>
+            Pierre Caffarel
+          </h2>
+
+          <p>
+            Pierre Caffarel est avocat au Parlement de Toulouse et secrétaire
+            de Jean-Mathias de Riquet. Sa présence dans les correspondances
+            montre la place prise par les secrétaires dans la nouvelle
+            organisation du canal après 1680.
+          </p>
+
+          <p>
+            La lettre du 1er mars 1688 témoigne de cette activité quotidienne.
+            Elle permet d’observer l’écriture administrative non plus à travers
+            la seule figure du propriétaire du canal, mais à travers celui
+            qui rédige et transmet les informations en son nom.
+          </p>
+
+          <p>
+            Caffarel apparaît ainsi comme un relais entre Jean-Mathias
+            et les différents acteurs impliqués dans l’administration.
+            Son rôle participe directement à la continuité du fonctionnement
+            du canal.
+          </p>
+
+        </div>
+
+
+        <figure>
+
+          <img
+            src="lettre_caffarel_1688-03-01.png"
+            alt="Lettre de Pierre Caffarel, 1er mars 1688"
+          >
+
+          <figcaption>
+            Lettre de Pierre Caffarel,
+            1er mars 1688.
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="expo-section section-ecru">
+
+      <div class="secretary-story reverse">
+
+        <figure>
+
+          <img
+            src="lettre_vigne_1688-02-17.png"
+            alt="Lettre de Vigne, 17 février 1688"
+          >
+
+          <figcaption>
+            Lettre de Vigne,
+            17 février 1688.
+          </figcaption>
+
+        </figure>
+
+
+        <div class="secretary-text">
+
+          <p class="kicker">
+            Au service du comte de Caraman
+          </p>
+
+          <h2>
+            Vigne
+          </h2>
+
+          <p>
+            Vigne est le secrétaire de Pierre-Paul de Riquet, comte de
+            Caraman. Contrairement à Caffarel, les recherches permettent
+            aujourd’hui de connaître très peu d’éléments sur sa vie et
+            son parcours.
+          </p>
+
+          <p>
+            Ses nombreuses lettres conservées donnent pourtant accès à son
+            activité. Elles montrent qu’un acteur aujourd’hui peu documenté
+            pouvait occuper une place importante dans la circulation
+            quotidienne des écrits.
+          </p>
+
+          <p>
+            La lettre du 17 février 1688 illustre ainsi le rôle du secrétaire
+            comme intermédiaire entre son maître et les autres acteurs
+            de l’administration du canal.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="expo-section section-bleue">
+
+      <div class="expo-inner">
+
+        <h2 class="expo-title">
+          De la construction à l’administration
+        </h2>
+
+        <div class="expo-text">
+
+          <p>
+            Les correspondances permettent ainsi de suivre une transformation
+            majeure. Du vivant de Pierre-Paul Riquet, les lettres convergent
+            principalement vers lui. Après sa mort, l’administration devient
+            plus collective et repose davantage sur les secrétaires et
+            les intermédiaires.
+          </p>
+
+          <p>
+            Derrière les propriétaires du canal apparaissent donc ceux qui
+            écrivent, copient, transmettent et organisent l’information.
+            L’étude de ces lettres permet de redonner une place à ces acteurs
+            discrets mais indispensables au fonctionnement quotidien
+            de l’entreprise.
+          </p>
+
+          <p style="text-align:center; margin-top:35px;">
+
+            <a
+              href="acteurs.html"
+              style="color:#f4efe5;"
+            >
+              Découvrir les acteurs du fonds →
+            </a>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
   </main>
+
 
   <div id="site-footer"></div>
 
+
 </body>
+
 </html>
