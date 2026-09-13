@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Administrer le canal - Écrire le canal</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+
+  <style>
+
+    .expo-intro {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 80px 25px 75px;
+      text-align: center;
+    }
+
+    .expo-intro .kicker {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .expo-intro h1 {
+      font-size: 44px;
+      font-weight: normal;
+      margin: 0 0 28px;
+    }
+
+    .expo-intro p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .expo-section {
+      padding: 80px 25px;
+    }
+
+    .expo-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .expo-title {
+      font-size: 34px;
+      font-weight: normal;
+      text-align: center;
+      margin: 0 0 40px;
+    }
+
+    .expo-text {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.85;
+      text-align: justify;
+    }
+
+    .expo-text p {
+      margin: 0 0 22px;
+    }
+
+    .section-ecru {
+      background: #efe8d9;
+      color: #17324f;
+    }
+
+    .section-bleue {
+      background: #17324f;
+      color: #f4efe5;
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      margin-top: 55px;
+      align-items: start;
+    }
+
+    .document-item {
+      margin: 0;
+      text-align: center;
+    }
+
+    .image-placeholder {
+      min-height: 430px;
+      border: 1px solid rgba(23, 50, 79, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .section-bleue .image-placeholder {
+      border-color: rgba(244, 239, 229, 0.35);
+    }
+
+    .image-placeholder span {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .image-placeholder small {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .document-item img {
+      max-width: 100%;
+      max-height: 650px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .document-caption {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .network-intro {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.85;
+      text-align: justify;
+    }
+
+    .network-intro p {
+      margin-bottom: 22px;
+    }
+
+    .network-figure {
+      max-width: 1050px;
+      margin: 50px auto 0;
+    }
+
+    .network-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .network-figure figcaption {
+      max-width: 900px;
+      margin: 22px auto 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    @media (max-width: 800px) {
+
+      .expo-intro h1 {
+        font-size: 34px;
+      }
+
+      .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .expo-section {
+        padding: 60px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <section class="expo-intro">
+
+      <p class="kicker">Volet II</p>
+
+      <h1>Administrer le canal</h1>
+
+      <p>
+        Après la mort de Pierre-Paul Riquet en 1680, ses deux fils héritent
+        du canal à parts égales. Jean-Mathias de Riquet, baron de Bonrepos,
+        et Pierre-Paul de Riquet, comte de Caraman, deviennent ainsi
+        coseigneurs d’un canal dont les travaux ne sont pas encore
+        entièrement achevés. Cette nouvelle organisation implique de faire
+        parvenir l’information des deux côtés de la coseigneurie et contribue
+        à faire évoluer les circuits de correspondance.
+      </p>
+
+    </section>
+
+
+    <section class="expo-section section-bleue">
+
+      <div class="expo-inner">
+
+        <h2 class="expo-title">
+          Des secrétaires au cœur de l’administration
+        </h2>
+
+        <div class="expo-text">
+
+          <p>
+            Les secrétaires occupent une place essentielle dans les pratiques
+            administratives de cette époque. Pierre Caffarel auprès de
+            Bonrepos et Vigne auprès de Caraman assurent une grande partie
+            de la circulation de l’information. Ils rédigent et transmettent
+            des lettres, correspondent entre eux et servent d’intermédiaires
+            entre les deux côtés de la coseigneurie.
+          </p>
+
+          <p>
+            Autour d’eux interviennent également d’autres hommes, comme
+            Desfour, Geoffroy, Bose ou De Laservière, qui participent à leur
+            tour à ces échanges. Le réseau se complexifie ainsi à mesure que
+            se multiplient les personnes chargées de recevoir, transmettre
+            ou conserver l’information.
+          </p>
+
+        </div>
+
+        <div class="documents-grid">
+
+          <figure class="document-item">
+
+            <div class="image-placeholder">
+              <span>Lettre de Pierre Caffarel</span>
+              <small>Image à venir</small>
+            </div>
+
+            <figcaption class="document-caption">
+              Correspondance de Pierre Caffarel.
+              Date et référence à compléter.
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="document-item">
+
+            <div class="image-placeholder">
+              <span>Lettre de Vigne</span>
+              <small>Image à venir</small>
+            </div>
+
+            <figcaption class="document-caption">
+              Correspondance de Vigne.
+              Date et référence à compléter.
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="expo-section section-ecru">
+
+      <div class="expo-inner">
+
+        <h2 class="expo-title">
+          Copier, transmettre et conserver
+        </h2>
+
+        <div class="expo-text">
+
+          <p>
+            Cette évolution se retrouve directement dans les archives.
+            Les lettres s’accompagnent désormais de nombreuses copies,
+            produites pour conserver la trace d’un échange ou faire parvenir
+            une même information à plusieurs destinataires.
+          </p>
+
+          <p>
+            La coseigneurie contribue ainsi à démultiplier les documents.
+            À la correspondance elle-même s’ajoutent les copies et les
+            transmissions successives. Tout un système de conservation et
+            de circulation de l’information se met progressivement en place,
+            dont les traces sont encore visibles dans les documents conservés.
+          </p>
+
+        </div>
+
+        <div class="documents-grid">
+
+          <figure class="document-item">
+
+            <div class="image-placeholder">
+              <span>Copie ou double de lettre</span>
+              <small>Image à venir</small>
+            </div>
+
+            <figcaption class="document-caption">
+              Exemple d’une copie conservée dans les archives.
+              Référence à compléter.
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="document-item">
+
+            <div class="image-placeholder">
+              <span>Document de transmission</span>
+              <small>Image à venir</small>
+            </div>
+
+            <figcaption class="document-caption">
+              Document illustrant la circulation ou la conservation
+              de l’information.
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="expo-section section-bleue">
+
+      <div class="expo-inner">
+
+        <p class="kicker" style="text-align:center;">
+          Visualiser les échanges
+        </p>
+
+        <h2 class="expo-title">
+          La correspondance au temps de la coseigneurie
+        </h2>
+
+        <div class="network-intro">
+
+          <p>
+            Le réseau ci-dessous permet d’observer une partie de ce
+            fonctionnement. Il fait apparaître les deux coseigneurs, leurs
+            secrétaires et plusieurs autres hommes présents dans les
+            correspondances retenues.
+          </p>
+
+          <p>
+            La relation particulièrement importante entre Caffarel et Vigne
+            montre combien les échanges entre intermédiaires participent au
+            fonctionnement quotidien de la coseigneurie. Le graphe donne
+            ainsi à voir un réseau qui ne se limite plus aux échanges directs
+            avec les propriétaires du canal, mais repose sur plusieurs niveaux
+            de transmission.
+          </p>
+
+        </div>
+
+        <figure class="network-figure">
+
+          <img
+            src="images/reseau_correspondance_caffarel_vigne.png"
+            alt="Réseau de correspondance autour de Pierre Caffarel et Vigne"
+          >
+
+          <figcaption>
+            Réseau sélectif établi à partir des correspondances recensées dans
+            le corpus. La couleur distingue les coseigneurs, les intermédiaires
+            et les autres correspondants. L’épaisseur des liens est
+            proportionnelle au nombre de lettres conservées. Les chiffres
+            indiquent le nombre de lettres recensées pour chaque relation.
+            Le réseau est volontairement sélectif afin de conserver une
+            visualisation lisible.
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>
