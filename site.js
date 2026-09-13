@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = `
     <header class="site-header">
       <div class="site-header-inner">
+
         <p class="site-kicker">
           30 ans de l'inscription du canal du Midi au patrimoine mondial de l'UNESCO
         </p>
@@ -14,17 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
         <p class="site-subtitle">
           Lettres, acteurs et administration du canal du Midi au XVIIe siècle
         </p>
+
       </div>
     </header>
 
     <nav class="main-nav" aria-label="Navigation principale">
       <ul>
+
         <li>
           <a href="index.html">Accueil</a>
         </li>
 
         <li>
-          <a href="index.html#construction">Construire le canal</a>
+          <a href="construire.html">Construire le canal</a>
         </li>
 
         <li>
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <li>
           <a href="index.html#apropos">À propos</a>
         </li>
+
       </ul>
     </nav>
   `;
@@ -50,17 +54,45 @@ document.addEventListener("DOMContentLoaded", function () {
   const footer = `
     <footer class="site-footer">
 
-      <p class="footer-title">
-        Écrire le canal
-      </p>
+      <div class="footer-inner">
 
-      <p>
-        Correspondances et administration du canal du Midi au XVIIe siècle
-      </p>
+        <p class="footer-title">
+          Écrire le canal
+        </p>
 
-      <p class="footer-small">
-        Exposition virtuelle
-      </p>
+        <p>
+          Correspondances et administration du canal du Midi au XVIIe siècle
+        </p>
+
+        <div class="footer-logos">
+
+          <img
+            src="images/logos/vnf.png"
+            alt="Voies navigables de France"
+          >
+
+          <img
+            src="images/logos/canal.png"
+            alt="Canal du Midi"
+          >
+
+          <img
+            src="images/logos/ut2j.png"
+            alt="Université Toulouse Jean Jaurès"
+          >
+
+          <img
+            src="images/logos/ddm.png"
+            alt="Département Documentation Archives Médiathèque et Édition"
+          >
+
+        </div>
+
+        <p class="footer-small">
+          Exposition virtuelle
+        </p>
+
+      </div>
 
     </footer>
   `;
